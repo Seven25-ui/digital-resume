@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gene Guardiana | System Architect & Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Gene Guardiana, specializing in OS Development, Flask, and Cloud Integration via Termux.">
+    
+    <style>
+        :root {
+            --primary: #E95420; /* Ubuntu Orange */
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --text: #c9d1d9;
+            --grid-color: rgba(0, 255, 0, 0.03);
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 90%;
+            padding: 40px 20px 80px 20px;
+        }
+
+        /* --- DASHBOARD TOP BAR --- */
+        .top-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            background: rgba(22, 27, 34, 0.8);
+            padding: 15px 25px;
+            border-radius: 15px;
+            border: 1px solid #30363d;
+            backdrop-filter: blur(5px);
+        }
+
+        .profile-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            object-fit: cover;
+            background: #30363d;
+        }
+
+        .profile-info strong {
+            color: #fff;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            background-color: #238636;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .live-widgets {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+        }
+
+        #clock {
+            font-size: 1.3rem;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        #weather {
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-top: 2px;
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            border-left: 5px solid var(--primary);
+            padding-left: 25px;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: var(--primary);
+            font-family: 'Courier New', monospace;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .about {
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #8b949e;
+            max-width: 800px;
+        }
+
+        /* --- PROJECT GRID --- */
+        h2 {
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(233, 84, 32, 0.15);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.3rem;
+        }
+
+        .tag-container {
+            margin: 15px 0 25px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            background: #21262d;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            font-weight: bold;
+        }
+
+        /* --- REPO BUTTONS --- */
+        .repo-link {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 1px solid var(--primary);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-align: center;
+            transition: 0.3s;
+            background: transparent;
+        }
+
+        .repo-link:hover {
+            background: var(--primary);
+            box-shadow: 0 0 15px rgba(233, 84, 32, 0.4);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: auto;
+            padding: 60px 40px;
+            background: #090c10;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid #30363d;
+        }
+
+        .contact-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 600px) {
+            .top-bar { flex-direction: column; gap: 15px; text-align: center; }
+            .live-widgets { text-align: center; }
+        }
+
+.menu-btn {
+  position: fixed; /* Magpabilin siya bisan mag-scroll */
+  top: 15px;       /* Distansya gikan sa taas */
+  right: 15px;     /* Distansya gikan sa tuo */
+  z-index: 2000;   /* Siguroha nga naa siya sa ibabaw sa tanan */
+  cursor: pointer;
+  background: rgba(13, 17, 23, 0.9); /* Dark background para makita sa header */
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #30363d; /* Subtle border para sa 'Hacker' vibe */
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #58a6ff;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+.side-nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  background-color: #0d1117;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  border-left: 1px solid #30363d;
+}
+.nav-links a {
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #8b949e;
+  display: block;
+  font-family: 'Courier New', monospace;
+}
+.nav-links a:hover { color: #58a6ff; background: #161b22; }
+
+    </style>
+</head>
+<body>
+
+<div class="menu-btn" onclick="toggleMenu()">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+<nav id="sideMenu" class="side-nav">
+  <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="tutorials/read-topic.html" style="color: #ff7b72; font-weight: bold;">[ READ TOPICS ]</a>
+    <hr style="border: 0.2px solid #30363d; margin: 10px 20px;">
+    
+    <a href="chap1.html">Ch 1: Termux Mastery</a>
+    <a href="chap2.html">Ch 2: Dev Workflow</a>
+    <a href="chap3.html">Ch 3: OS Development</a>
+    <a href="chap4.html">Ch 4: Kernel & Binary</a>
+    <a href="chap5.html">Ch 5: Ethical Security</a>
+    
+    <hr style="border: 0.2px solid #30363d; margin: 10px 20px;">
+    <a href="#adsense-policy">Privacy & About</a>
+  </div>
+</nav>
+
+<div class="container">
+    <div class="top-bar">
+        <div class="profile-area">
+            <img src="media/IMG_20260303_143703.jpg" alt="Gene Guardiana" class="profile-img">
+            <div class="profile-info">
+                <strong>GENE GUARDIANA</strong>
+                <span style="font-size: 0.75rem; color: #8b949e;">
+                    <span class="status-dot"></span>Available for Hire
+                </span>
+            </div>
+        </div>
+        <div class="live-widgets">
+            <div id="clock">00:00:00</div>
+            <div id="weather">Loading Weather...</div>
+        </div>
+    </div>
+
+    <header>
+        <h1>GENE GUARDIANA</h1>
+        <div class="subtitle">System Architect | Full-Stack Dev [Termux Specialized]</div>
+    </header>
+
+    <section class="about">
+        <p>I am a software engineer focused on building robust systems from the ground up. Whether it's crafting a <strong>32-bit OS Kernel</strong> in Assembly or deploying scalable <strong>Flask applications</strong> with Cloud-native integrations, I leverage the power of <strong>Termux</strong> to develop high-performance solutions directly from a mobile environment.</p>
+    </section>
+
+    <section id="projects">
+        <h2>// PROJECT_REPOSITORY_V1.0</h2>
+        <div class="project-grid">
+            
+            <div class="card">
+                <div>
+                    <h3>SE7EN PLAY</h3>
+                    <p>Professional cinema portal with TMDB API integration and real-time visitor tracking.</p>
+                    <div class="tag-container">
+                        <span class="tag">SUPABASE</span><span class="tag">CLOUDFLARE</span><span class="tag">API</span>
+                    </div>
+                </div>
+                <a href="https://seven25.click/" target="_blank" class="repo-link">VIEW SOURCE</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Social Engine</h3>
+                    <p>Full-stack Flask application featuring private messaging and Cloudinary media management.</p>
+                    <div class="tag-container">
+                        <span class="tag">FLASK</span><span class="tag">POSTGRES</span><span class="tag">NEON_DB</span>
+                    </div>
+                </div>
+                <a href="https://flask-blog-v2.onrender.com/" target="_blank" class="repo-link">VIEW SOURCE</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>YouTube Architecture</h3>
+                    <p>High-fidelity UI clone exploring dynamic grid systems and responsive video containers.</p>
+                    <div class="tag-container">
+                        <span class="tag">CSS_GRID</span><span class="tag">JS</span><span class="tag">RESPONSIVE</span>
+                    </div>
+                </div>
+                <a href="https://seven25-ui.github.io/Yt7_clone/" target="_blank" class="repo-link">VIEW SOURCE</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Weather Engine</h3>
+                    <p>Live meteorological tracker fetching global data via OpenWeather JSON API.</p>
+                    <div class="tag-container">
+                        <span class="tag">API</span><span class="tag">JSON</span><span class="tag">JS</span>
+                    </div>
+                </div>
+                <a href="https://seven25-ui.github.io/Weather-app/" target="_blank" class="repo-link">VIEW SOURCE</a>
+            </div>
+
+            <div class="card" style="border-style: solid; border-color: var(--primary);">
+                <div>
+                    <h3>OS Kernel Lab</h3>
+                    <p>Building 32-bit architecture: Bootloaders, GDT, and memory paging from scratch.</p>
+                    <div class="tag-container">
+                        <span class="tag">x86_ASSEMBLY</span><span class="tag">BARE_METAL</span><span class="tag">KERNEL</span>
+                    </div>
+                </div>
+                <a href="https://github.com/yourusername/os-kernel" target="_blank" class="repo-link">VIEW SOURCE</a>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<section id="gallery" style="padding: 40px 20px; border-top: 1px solid #30363d;">
+    <h2 style="color: #58a6ff; font-family: 'Courier New', monospace;">// VISUAL_ARCHIVES_V1.0</h2>
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="media/ss1.jpg" alt="Project Screenshot 1"></div>
+        <div class="gallery-item"><img src="media/ss2.jpg" alt="Project Screenshot 2"></div>
+        <div class="gallery-item"><img src="media/ss3.jpg" alt="Project Screenshot 3"></div>
+    </div>
+</section>
+
+<style>
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .gallery-item img {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #30363d;
+        transition: 0.3s;
+        filter: grayscale(50%); /* Hacker aesthetic */
+    }
+    .gallery-item img:hover {
+        filter: grayscale(0%);
+        transform: scale(1.02);
+        border-color: #58a6ff;
+    }
+</style>
+
+<section id="cta-topics" style="padding: 60px 20px; text-align: center; background: linear-gradient(180deg, #0d1117 0%, #161b22 100%); border-bottom: 1px solid #30363d;">
+    <h2 style="color: #58a6ff; font-family: 'Courier New', monospace; margin-bottom: 20px;">>_ CURIOUS_HOW_IT_WORKS?</h2>
+    <p style="max-width: 600px; margin: 0 auto 30px; line-height: 1.6;">
+        Interested in low-level engineering? From setting up a mobile environment to crafting a 32-bit OS Kernel, 
+        I've documented the entire process for the next generation of architects.
+    </p>
+    
+    <a href="tutorials/read-topic.html" style="
+        display: inline-block;
+        padding: 15px 40px;
+        background-color: transparent;
+        color: #ff7b72;
+        border: 2px solid #ff7b72;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: 'Courier New', monospace;
+        border-radius: 5px;
+        transition: 0.3s;
+    " onmouseover="this.style.backgroundColor='#ff7b72'; this.style.color='#0d1117';" 
+       onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ff7b72';">
+        [ EXPLORE FULL TUTORIALS ]
+    </a>
+</section>
+
+<footer>
+    <div class="contact-links">
+        <a href="https://github.com/Seven25-ui" target="_blank">GITHUB</a>
+        
+        <a href="mailto:guardianagene6@gmail.com">EMAIL</a>
+        
+        <p style="font-size: 0.9rem; margin-top: 25px; color: #8b949e; font-family: 'Courier New', monospace;">
+            // SITE_DEPLOYED: <span style="color: var(--primary);">seven33.site</span>
+        </p>
+        
+        <p style="font-size: 0.75rem; margin-top: 10px; color: #484f58;">
+            &copy; 2026 Gene Guardiana | Engineered via Termux
+        </p>
+    </div>
+</footer>
+
+<script>
+    // 1. CLOCK LOGIC
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('clock').innerText = now.toLocaleTimeString([], { hour12: false });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // 2. WEATHER LOGIC (OpenWeatherMap API)
+    const API_KEY = '8a252f61c3bb5b844bf4473729978c30'; // Replace with your real API key
+    const CITY = 'Cebu City';
+
+    async function fetchWeather() {
+        try {
+            const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=metric&appid=${API_KEY}`);
+            const data = await res.json();
+            const temp = Math.round(data.main.temp);
+            document.getElementById('weather').innerText = `${CITY.toUpperCase()}: ${temp}°C | ${data.weather[0].main}`;
+        } catch (e) {
+            document.getElementById('weather').innerText = "CEBU: 30°C | CLEAR";
+        }
+    }
+    fetchWeather();
+
+function toggleMenu() {
+  const menu = document.getElementById("sideMenu");
+  if (menu.style.width === "250px") {
+    menu.style.width = "0";
+  } else {
+    menu.style.width = "250px";
+  }
+}
+
+</script>
+
+</body>
+</html>
