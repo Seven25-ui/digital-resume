@@ -393,30 +393,42 @@
 <section id="gallery" style="padding: 40px 20px; border-top: 1px solid #30363d;">
     <h2 style="color: #58a6ff; font-family: 'Courier New', monospace;">// VISUAL_ARCHIVES_V1.0</h2>
     <div class="gallery-grid">
-        <div class="gallery-item"><img src="media/ss1.jpg" alt="Project Screenshot 1"></div>
-        <div class="gallery-item"><img src="media/ss2.jpg" alt="Project Screenshot 2"></div>
-        <div class="gallery-item"><img src="media/ss3.jpg" alt="Project Screenshot 3"></div>
+        <div class="gallery-item"><img src="media/ss1.jpg" alt="Termux OS Development Terminal - Kernel X"></div>
+<div class="gallery-item"><img src="media/ss2.jpg" alt="Low-Level C and Assembly source files in Termux"></div>
+<div class="gallery-item"><img src="media/ss3.jpg" alt="System Architect Directory Structure on Android"></div>
     </div>
 </section>
 
 <style>
     .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-        margin-top: 20px;
+        /* Mag-adjust ni gikan sa 1 column (mobile) padung sa daghan (desktop) */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
     }
+
+    .gallery-item {
+        overflow: hidden; /* Aron dili molapas ang image inig zoom */
+        border-radius: 8px;
+        background: #161b22; /* Loading color placeholder */
+    }
+
     .gallery-item img {
         width: 100%;
-        border-radius: 8px;
+        height: 400px; /* I-fix ang height para uniform ang tanang screenshots */
+        object-fit: cover; /* Importante: Kini ang moputol sa image overlay para dili ma-stretch */
+        object-position: top; /* Kay screenshots man sa Termux, mas maayo makita ang top part (command line) */
         border: 1px solid #30363d;
-        transition: 0.3s;
-        filter: grayscale(50%); /* Hacker aesthetic */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        filter: grayscale(80%) brightness(0.8); /* Mas bug-at nga hacker aesthetic */
     }
+
     .gallery-item img:hover {
-        filter: grayscale(0%);
-        transform: scale(1.02);
+        filter: grayscale(0%) brightness(1.2);
+        transform: scale(1.05);
         border-color: #58a6ff;
+        cursor: pointer;
     }
 </style>
 
