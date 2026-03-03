@@ -5,45 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read Topics | Seven33 Academy</title>
     <style>
-        body { 
-            background: #0d1117; 
-            color: #8b949e; 
-            font-family: 'Courier New', monospace; 
-            padding: 25px; 
-            line-height: 1.6; 
+        body {
+            background: #0d1117;
+            color: #8b949e;
+            font-family: 'Courier New', monospace;
+            padding: 25px;
+            line-height: 1.6;
         }
         .container { max-width: 900px; margin: auto; }
         h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 10px; }
-        .topic-card { 
-            background: #161b22; 
-            border: 1px solid #30363d; 
-            padding: 20px; 
-            margin-bottom: 25px; 
-            border-radius: 8px; 
+        .topic-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
             transition: 0.3s;
         }
         .topic-card:hover { border-color: #58a6ff; transform: translateY(-3px); }
         .topic-card h2 { color: #7ee787; margin-top: 0; }
-        .btn-read { 
+        .btn-read {
             display: inline-block;
             margin-top: 10px;
-            color: #58a6ff; 
-            text-decoration: none; 
-            border: 1px solid #58a6ff; 
-            padding: 6px 15px; 
-            border-radius: 4px; 
-            font-size: 0.9rem; 
+            color: #58a6ff;
+            text-decoration: none;
+            border: 1px solid #58a6ff;
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
         }
         .btn-read:hover { background: #58a6ff; color: #0d1117; }
-        
+
         /* The Mission Section */
-        .mission-box { 
-            background: #0d1117; 
-            border: 1px dashed #58a6ff; 
-            padding: 20px; 
-            margin-top: 40px; 
+        .mission-box {
+            background: #0d1117;
+            border: 1px dashed #58a6ff;
+            padding: 20px;
+            margin-top: 40px;
             border-radius: 8px;
         }
+        .highlight { color: #d2a8ff; }
     </style>
 </head>
 <body>
@@ -54,29 +55,43 @@
         <div class="topic-card">
             <h2>Chapter 1: Termux Mastery</h2>
             <p>Learn the initialization process, essential package management, and how to prepare your mobile environment for high-level engineering.</p>
-            <a href="ch1-termux-mastery.html" class="btn-read">READ FULL TOPIC →</a>
+            <a href="chap1.html" class="btn-read">READ FULL TOPIC →</a>
         </div>
 
         <div class="topic-card">
             <h2>Chapter 2: The Professional Workflow</h2>
             <p>Mastering Nano/Vim, Git version control, and local server hosting on Android to manage professional-grade source code.</p>
-            <a href="ch2-dev-workflow.html" class="btn-read">READ FULL TOPIC →</a>
+            <a href="chap2.html" class="btn-read">READ FULL TOPIC →</a>
         </div>
 
-        <div class="topic-card" style="opacity: 0.6;">
-            <h2>Chapter 3: OS Development (Upcoming)</h2>
+        <div class="topic-card">
+            <h2>Chapter 3: OS Development</h2>
             <p>A deep dive into x86 Assembly, the magic of the 512-byte boot signature, and kernel entry logic.</p>
-            <span style="color: #ff7b72;">[ COMING_SOON ]</span>
+            <a href="chap3.html" class="btn-read">READ FULL TOPIC →</a>
         </div>
 
-        <div class="mission-box">
+        <div class="topic-card">
+            <h2>Chapter 4: Kernel Logic & Binaries</h2>
+            <p>Understanding the bridge between hardware and software. A look into memory paging, monolithic kernels, and binary execution.</p>
+            <a href="chap4.html" class="btn-read">READ FULL TOPIC →</a>
+        </div>
+
+        <div class="topic-card">
+            <h2>Chapter 5: Ethical Cybersecurity</h2>
+            <p>Mobile network auditing and security research. Turning Termux into a portable laboratory for ethical security testing.</p>
+            <a href="chap5.html" class="btn-read">READ FULL TOPIC →</a>
+        </div>
+
+        <div class="mission-box" id="about-architect">
             <h3 style="color: #58a6ff; margin-top: 0;">>_ The Architect's Mission</h3>
-            <p>I am <strong>Gene Guardiana</strong>, a System Architect dedicated to pushing the boundaries of mobile computing. My journey began with a simple question: <em>"Can a smartphone build an Operating System?"</em> [cite: 2026-03-03]</p>
+            <p>I am <strong>Gene Guardiana</strong>, a System Architect dedicated to pushing the boundaries of mobile computing. My journey began with a simple question: <em>"Can a smartphone build an Operating System?"</em></p>
             <p>This academy serves as a bridge for aspiring mobile developers. My mission is to prove that raw engineering knowledge is not limited by the device you hold. [cite: 2026-03-03]</p>
         </div>
 
         <div style="margin-top: 50px; text-align: center;">
             <a href="../index.html" style="color: #8b949e; text-decoration: none;">← Return to Main Dashboard</a>
+            <br><br>
+            <a href="privacy-policy.html" style="color: #58a6ff; font-size: 0.8rem; text-decoration: none;">Privacy Policy</a>
         </div>
     </div>
 </body>
