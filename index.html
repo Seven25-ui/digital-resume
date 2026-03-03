@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gene Guardiana | System Architect & Full-Stack Developer</title>
     <meta name="description" content="Portfolio of Gene Guardiana, specializing in OS Development, Flask, and Cloud Integration via Termux.">
-    
-    <style>
+    <meta name="title" content="Seven33 Academy | System Architect & OS Development">
+<meta name="description" content="Official research and documentation of Gene Guardiana. Exploring Low-Level Engineering, Kernel Development, and Full-Stack solutions via Termux.">
+<meta name="keywords" content="Gene Guardiana, Seven33, Termux, OS Development, Kernel, System Architect, Low-Level Engineering, Android Coding">
+<meta name="author" content="Gene Guardiana">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seven33.site/">
+<meta property="og:title" content="Seven33 Academy | The Architect's Lab">
+<meta property="og:description" content="Documentation of 32-bit OS Architecture and Mobile Development environments.">
+<meta property="og:image" content="https://seven33.site/media/ss1.jpg"> <meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://seven33.site/">
+<meta property="twitter:title" content="Seven33 Academy">
+<meta property="twitter:description" content="Building Operating Systems on Mobile Devices.">    
+   
+ <style>
         :root {
             --primary: #E95420; /* Ubuntu Orange */
             --bg: #0d1117;
@@ -402,33 +415,37 @@
 <style>
     .gallery-grid {
         display: grid;
-        /* Mag-adjust ni gikan sa 1 column (mobile) padung sa daghan (desktop) */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Sa mobile, 1 column. Sa desktop, 3 columns para horizontal */
+        grid-template-columns: 1fr; 
         gap: 20px;
         margin-top: 30px;
     }
 
+    /* Kini ang magic para sa Desktop View */
+    @media (min-width: 1024px) {
+        .gallery-grid {
+            grid-template-columns: repeat(3, 1fr); /* Himoon natong 3-columns */
+        }
+    }
+
     .gallery-item {
-        overflow: hidden; /* Aron dili molapas ang image inig zoom */
-        border-radius: 8px;
-        background: #161b22; /* Loading color placeholder */
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #30363d;
+        background: #0d1117;
     }
 
     .gallery-item img {
         width: 100%;
-        height: 400px; /* I-fix ang height para uniform ang tanang screenshots */
-        object-fit: cover; /* Importante: Kini ang moputol sa image overlay para dili ma-stretch */
-        object-position: top; /* Kay screenshots man sa Termux, mas maayo makita ang top part (command line) */
-        border: 1px solid #30363d;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        filter: grayscale(80%) brightness(0.8); /* Mas bug-at nga hacker aesthetic */
+        height: auto; /* I-maintain ang aspect ratio sa portrait */
+        display: block;
+        filter: grayscale(40%);
+        transition: 0.3s;
     }
 
-    .gallery-item img:hover {
-        filter: grayscale(0%) brightness(1.2);
+    .gallery-item:hover img {
+        filter: grayscale(0%);
         transform: scale(1.05);
-        border-color: #58a6ff;
-        cursor: pointer;
     }
 </style>
 
