@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://seven33.site/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://seven33.site/read-topic.html</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://seven33.site/about.html</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://seven33.site/privacy-policy.html</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+  <url><loc>https://seven33.site/chap1.html</loc><priority>0.80</priority></url>
+  <url><loc>https://seven33.site/chap2.html</loc><priority(0.80)></url>
+  <url><loc>https://seven33.site/chap3.html</loc><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap4.html</loc><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap5.html</loc><priority>0.80</priority></url>
+</urlset>
