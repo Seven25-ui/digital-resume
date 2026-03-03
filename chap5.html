@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5: Ethical Security | Seven33 Academy</title>
+    <style>
+        body { background: #0d1117; color: #8b949e; font-family: 'Courier New', monospace; padding: 25px; line-height: 1.6; }
+        .container { max-width: 850px; margin: auto; }
+        h1, h2, h3 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .warning-box { border: 2px solid #ff7b72; padding: 20px; background: rgba(255, 123, 114, 0.05); border-radius: 8px; margin: 20px 0; }
+        .tool-card { background: #161b22; border: 1px solid #30363d; padding: 15px; margin-bottom: 15px; border-radius: 6px; }
+        .cmd { color: #7ee787; font-weight: bold; }
+        .footer { margin-top: 50px; text-align: center; border-top: 1px solid #30363d; padding: 20px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chapter 5: Ethical Cybersecurity & Network Auditing</h1>
+
+        <div class="warning-box">
+            <strong style="color: #ff7b72;">LEGAL DISCLAIMER:</strong> 
+            The information provided in this chapter is for <span style="text-decoration: underline;">educational purposes only</span>. [cite: 2026-03-03] Unauthorized access to computer systems is illegal. The goal of an Architect is to build and protect, not to destroy. [cite: 2026-03-03]
+        </div>
+
+        <h2>5.1 The Security Researcher's Toolkit</h2>
+        <p>Termux allows us to turn an Android device into a mobile security laboratory. [cite: 2026-03-03] By auditing our own networks, we can identify vulnerabilities before they are exploited by malicious actors. [cite: 2026-03-03]</p>
+
+        
+
+        <div class="tool-card">
+            <h3>5.1.1 Network Mapping (Nmap)</h3>
+            <p>Nmap (Network Mapper) is the industry standard for discovering devices on a network and identifying open ports. [cite: 2026-03-03]</p>
+            <p>Installation: <span class="cmd">pkg install nmap</span></p>
+            <p>Example Audit: <span class="cmd">nmap -sV 192.168.1.1</span> (Scans your local router for service versions).</p>
+        </div>
+
+        <div class="tool-card">
+            <h3>5.1.2 Password Strength Research (Hydra)</h3>
+            <p>Hydra is a powerful tool used to test the resilience of login forms against brute-force attacks. [cite: 2026-03-03] Architects use this to ensure their own servers have "Strong Password Policies." [cite: 2026-03-03]</p>
+            <p>Installation: <span class="cmd">pkg install hydra</span></p>
+        </div>
+
+        <h2>5.2 Data Encryption & Privacy</h2>
+        <p>Security is not just about tools; it is about <strong>Encryption</strong>. [cite: 2026-03-03] In Termux, we use <span style="color: #d2a8ff;">OpenSSL</span> to encrypt sensitive files before they are transmitted or stored. [cite: 2026-03-03]</p>
+
+        
+
+[Image of a public-key cryptography diagram illustrating how a message is encrypted with a public key and decrypted with a private key]
+
+
+        <div class="tool-card">
+            <p><strong>Pro-Tip:</strong> Use <span class="cmd">pkg install gnupg</span> to manage PGP keys. This allows you to sign your code commits, proving that the **Seven33** source code really came from you and hasn't been tampered with. [cite: 2026-03-03]</p>
+        </div>
+
+        <h2>5.3 Conclusion: The Ethical Architect</h2>
+        <p>A true Architect understands the "Offensive" side of security to build a better "Defensive" system. [cite: 2026-03-03] Mastery of Termux security tools is about building a safer digital environment for everyone. [cite: 2026-03-03]</p>
+
+        <br>
+        <div style="display: flex; justify-content: space-between;">
+            <a href="ch4-kernel-logic.html" style="color: #58a6ff; text-decoration: none;">← Chapter 4</a>
+            <a href="read-topic.html" style="color: #58a6ff; text-decoration: none;">Back to Archives</a>
+            <a href="../index.html" style="color: #58a6ff; text-decoration: none;">Home Dashboard</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 SEVEN33 SYSTEMS | Security & Ethics | Built on Termux
+    </div>
+</body>
+</html>

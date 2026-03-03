@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4: Kernel Logic & Binaries | Seven33 Academy</title>
+    <style>
+        body { background: #0d1117; color: #8b949e; font-family: 'Courier New', monospace; padding: 25px; line-height: 1.6; }
+        .container { max-width: 850px; margin: auto; }
+        h1, h2, h3 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .logic-card { background: #161b22; border: 1px solid #30363d; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .highlight { color: #7ee787; font-weight: bold; }
+        .footer { margin-top: 50px; text-align: center; border-top: 1px solid #30363d; padding: 20px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chapter 4: The Core Logic - Understanding Kernels & Binaries</h1>
+        
+        <h2>4.1 What is a Kernel?</h2>
+        <p>The <span class="highlight">Kernel</span> is the heart of any operating system. [cite: 2026-03-03] It is the invisible layer that manages the communication between the hardware (CPU, RAM, Storage) and the software (Applications). [cite: 2026-01-14]</p>
+        
+        <div class="logic-card">
+            <strong>The Architect's Perspective:</strong> In Seven33 OS, our goal is to build a "Monolithic Kernel" environment where the system has direct control over memory paging and task scheduling. [cite: 2026-01-14]
+        </div>
+
+        <h2>4.2 From Source Code to Binary</h2>
+        <p>Computers do not understand English or even C++. [cite: 2026-03-03] They only understand <strong>Binary (0s and 1s)</strong>. [cite: 2026-01-14] When we compile our code in Termux, we are translating our architectural designs into machine instructions that the processor can execute. [cite: 2026-03-03]</p>
+
+        <h3>The Compilation Flow:</h3>
+        <ol>
+            <li><strong>Source Code:</strong> The readable text we write (e.g., <code>kernel.c</code>).</li>
+            <li><strong>Assembly:</strong> The code translated into CPU-specific instructions.</li>
+            <li><strong>Object File:</strong> The machine code before being linked.</li>
+            <li><strong>Binary Executable:</strong> The final "Kernel Image" that the bootloader loads into memory.</li>
+        </ol>
+
+        <h2>4.3 Memory Management (RAM)</h2>
+        <p>A kernel's primary job is to ensure that no two programs overwrite each other's data. [cite: 2026-03-03] We use <strong>Memory Paging</strong> to divide RAM into small blocks, allowing the OS to efficiently allocate space for the Seven33 processes. [cite: 2026-01-14]</p>
+
+        <div class="logic-card" style="border-left: 4px solid #d2a8ff;">
+            <p><em>"In the world of the Architect, a binary is not just a file; it is a perfectly sequenced set of instructions that brings hardware to life."</em></p>
+        </div>
+
+        <br>
+        <div style="display: flex; justify-content: space-between;">
+            <a href="ch3-os-dev.html" style="color: #58a6ff; text-decoration: none;">← Chapter 3</a>
+            <a href="read-topic.html" style="color: #58a6ff; text-decoration: none;">Archives</a>
+            <a href="ch5-cyber-security.html" style="color: #58a6ff; text-decoration: none;">Chapter 5 →</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 SEVEN33 SYSTEMS | Low-Level Education
+    </div>
+</body>
+</html>

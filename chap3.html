@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3: OS Development | Seven33 Academy</title>
+    <style>
+        body { background: #0d1117; color: #8b949e; font-family: 'Courier New', monospace; padding: 25px; line-height: 1.6; }
+        .container { max-width: 850px; margin: auto; }
+        h1, h2, h3 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .code-block { 
+            background: #161b22; 
+            color: #d2a8ff; 
+            padding: 15px; 
+            border-radius: 4px; 
+            border: 1px solid #30363d; 
+            font-size: 0.85rem;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .note { border-left: 4px solid #ff7b72; padding-left: 15px; background: rgba(255, 123, 114, 0.1); padding: 10px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chapter 3: Low-Level Engineering & OS Design</h1>
+        
+        <h2>3.1 Breaking the Abstraction</h2>
+        <p>Most developers work with high-level languages like Python or JavaScript. [cite: 2026-03-03] But as an <strong>Architect</strong>, we go deeper. [cite: 2026-03-03] We communicate directly with the CPU using <span style="color: #7ee787;">Assembly Language</span>. [cite: 2026-03-03]</p>
+
+        
+
+        <h2>3.2 The Magic of 512 Bytes (The Bootloader)</h2>
+        <p>When a computer starts, it looks for the first sector of the disk. [cite: 2026-01-14] If it finds the "Magic Number" <code>0xAA55</code> at the end of the first 512 bytes, it treats it as a bootloader. [cite: 2026-01-14]</p>
+
+        <div class="code-block">
+[org 0x7c00]    ; Start address in memory
+
+mov ah, 0x0e    ; BIOS teletype mode
+mov al, '7'     ; Print character '7'
+int 0x10
+mov al, '3'     ; Print character '3'
+int 0x10
+
+jmp $           ; Infinite loop
+
+times 510-($-$$) db 0 ; Fill rest with zero
+dw 0xaa55             ; Boot signature
+        </div>
+
+        <div class="note">
+            <strong>Architect's Note:</strong> In Termux, we use <code>nasm</code> to compile this assembly code into a raw binary file that can be executed by an emulator like QEMU. [cite: 2026-03-03]
+        </div>
+
+        <h2>3.3 Compiling on Android</h2>
+        <p>Run these commands to build your first bootable image:</p>
+        <div class="code-block">
+pkg install nasm
+nasm -f bin boot.asm -o boot.bin
+        </div>
+
+        <p>This <code>boot.bin</code> is the physical manifestation of your code—a bare-metal program that runs without an operating system. [cite: 2026-01-14, 2026-03-03]</p>
+
+        <br>
+        <a href="read-topic.html" style="color: #58a6ff; text-decoration: none; border: 1px solid #58a6ff; padding: 5px 15px; border-radius: 4px;">← Back to Archives</a>
+    </div>
+
+    <footer style="margin-top: 50px; text-align: center; border-top: 1px solid #30363d; padding: 20px; font-size: 0.8rem;">
+        &copy; 2026 SEVEN33 SYSTEMS | Engineered on Termux
+    </footer>
+</body>
+</html>

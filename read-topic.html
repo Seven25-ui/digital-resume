@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Topics | Seven33 Academy</title>
+    <style>
+        body { 
+            background: #0d1117; 
+            color: #8b949e; 
+            font-family: 'Courier New', monospace; 
+            padding: 25px; 
+            line-height: 1.6; 
+        }
+        .container { max-width: 900px; margin: auto; }
+        h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 10px; }
+        .topic-card { 
+            background: #161b22; 
+            border: 1px solid #30363d; 
+            padding: 20px; 
+            margin-bottom: 25px; 
+            border-radius: 8px; 
+            transition: 0.3s;
+        }
+        .topic-card:hover { border-color: #58a6ff; transform: translateY(-3px); }
+        .topic-card h2 { color: #7ee787; margin-top: 0; }
+        .btn-read { 
+            display: inline-block;
+            margin-top: 10px;
+            color: #58a6ff; 
+            text-decoration: none; 
+            border: 1px solid #58a6ff; 
+            padding: 6px 15px; 
+            border-radius: 4px; 
+            font-size: 0.9rem; 
+        }
+        .btn-read:hover { background: #58a6ff; color: #0d1117; }
+        
+        /* The Mission Section */
+        .mission-box { 
+            background: #0d1117; 
+            border: 1px dashed #58a6ff; 
+            padding: 20px; 
+            margin-top: 40px; 
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>// SYSTEM_DOCUMENTATION_V1.0</h1>
+        <p>Welcome to the core logic of Seven33. Here you can find the complete archives of my research and tutorials, all conducted within the Termux environment.</p>
+
+        <div class="topic-card">
+            <h2>Chapter 1: Termux Mastery</h2>
+            <p>Learn the initialization process, essential package management, and how to prepare your mobile environment for high-level engineering.</p>
+            <a href="ch1-termux-mastery.html" class="btn-read">READ FULL TOPIC →</a>
+        </div>
+
+        <div class="topic-card">
+            <h2>Chapter 2: The Professional Workflow</h2>
+            <p>Mastering Nano/Vim, Git version control, and local server hosting on Android to manage professional-grade source code.</p>
+            <a href="ch2-dev-workflow.html" class="btn-read">READ FULL TOPIC →</a>
+        </div>
+
+        <div class="topic-card" style="opacity: 0.6;">
+            <h2>Chapter 3: OS Development (Upcoming)</h2>
+            <p>A deep dive into x86 Assembly, the magic of the 512-byte boot signature, and kernel entry logic.</p>
+            <span style="color: #ff7b72;">[ COMING_SOON ]</span>
+        </div>
+
+        <div class="mission-box">
+            <h3 style="color: #58a6ff; margin-top: 0;">>_ The Architect's Mission</h3>
+            <p>I am <strong>Gene Guardiana</strong>, a System Architect dedicated to pushing the boundaries of mobile computing. My journey began with a simple question: <em>"Can a smartphone build an Operating System?"</em> [cite: 2026-03-03]</p>
+            <p>This academy serves as a bridge for aspiring mobile developers. My mission is to prove that raw engineering knowledge is not limited by the device you hold. [cite: 2026-03-03]</p>
+        </div>
+
+        <div style="margin-top: 50px; text-align: center;">
+            <a href="../index.html" style="color: #8b949e; text-decoration: none;">← Return to Main Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

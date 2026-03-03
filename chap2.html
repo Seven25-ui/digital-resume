@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: Professional Workflow | Seven33 Academy</title>
+    <style>
+        body { 
+            background: #0d1117; 
+            color: #8b949e; 
+            font-family: 'Courier New', monospace; 
+            padding: 20px; 
+            line-height: 1.6; 
+            margin: 0;
+        }
+        .container { max-width: 850px; margin: 40px auto; padding: 20px; }
+        h1, h2, h3 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        .cmd-box { 
+            background: #161b22; 
+            color: #7ee787; 
+            padding: 15px; 
+            border-left: 4px solid #58a6ff; 
+            border-radius: 4px; 
+            font-size: 0.9rem;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .highlight { color: #d2a8ff; font-weight: bold; }
+        
+        /* Footer Styling */
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            border-top: 1px solid #30363d;
+            text-align: center;
+            font-size: 0.8rem;
+            background: #161b22;
+        }
+        .footer-links a { color: #58a6ff; text-decoration: none; margin: 0 10px; }
+        
+        .nav-btns { margin-top: 40px; display: flex; justify-content: space-between; }
+        .btn { color: #58a6ff; text-decoration: none; border: 1px solid #58a6ff; padding: 8px 15px; border-radius: 4px; transition: 0.3s; }
+        .btn:hover { background: #58a6ff; color: #0d1117; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chapter 2: The Professional Development Workflow</h1>
+    <p><em>Establishing a High-Level Engineering Standard on Mobile.</em></p>
+
+    <h2>2.1 The Architect's Editor (Nano & Vim)</h2>
+    <p>In a mobile environment, a GUI-based editor is a luxury we don't need. [cite: 2026-03-03] Efficiency comes from the command line. [cite: 2026-03-03] Whether you are using <strong>Nano</strong> for quick edits or <strong>Vim</strong> for complex structural changes, mastering keyboard shortcuts is the key to speed. [cite: 2026-03-03]</p>
+    
+    <div class="cmd-box">
+        # Install editors<br>
+        pkg install nano vim
+    </div>
+
+    
+
+    <h2>2.2 Version Control: Git as a Safety Net</h2>
+    <p>Never code without a fallback. [cite: 2026-03-03] Using <strong>Git</strong> within Termux allows you to track every iteration of your <span class="highlight">Seven33</span> project. [cite: 2026-03-03] This ensures that even if your device fails, your architectural blueprints are safe in the cloud (GitHub). [cite: 2026-03-03]</p>
+    
+    <div class="cmd-box">
+        git init<br>
+        git add .<br>
+        git commit -m "Initial Architectural Blueprint"
+    </div>
+
+    <h2>2.3 The Feedback Loop: Local Web Hosting</h2>
+    <p>One of the most powerful features of Termux is the ability to run local servers. [cite: 2026-03-03] For the <strong>Seven33 Social Engine</strong>, we use Python's built-in server for rapid testing of HTML and Flask components. [cite: 2026-01-14, 2026-03-03]</p>
+    
+    <div class="cmd-box">
+        # Start a local server at localhost:8000<br>
+        python -m http.server
+    </div>
+
+    <div class="nav-btns">
+        <a href="ch1-termux-mastery.html" class="btn">← Chapter 1</a>
+        <a href="read-topic.html" class="btn">Table of Contents</a>
+        <a href="ch3-os-dev.html" class="btn">Chapter 3 →</a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="../index.html">Home</a> | 
+        <a href="read-topic.html">Tutorials</a> | 
+        <a href="#">Privacy Policy</a>
+    </div>
+    <p style="margin-top: 15px;">&copy; 2026 SEVEN33 SYSTEMS. Built with Termux Discipline. [cite: 2026-03-03]</p>
+</footer>
+
+</body>
+</html>
