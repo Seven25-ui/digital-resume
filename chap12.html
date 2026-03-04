@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12: IoT Hardware Integration | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #7ee787; padding: 15px; border-radius: 5px; border-left: 4px solid #238636; margin: 20px 0; font-size: 0.9em; }
+        .note { background-color: #1f2937; border-left: 4px solid #d2a8ff; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chapter 12: IoT Hardware Integration</h1>
+    <p>Operating Systems are designed to bridge the gap between user logic and physical hardware. In this chapter, we explore how to use <strong>Termux</strong> as a controller for external IoT (Internet of Things) devices via Serial and USB communication.</p>
+
+    <h2>1. The Serial Communication Protocol</h2>
+    <p>To talk to hardware like Arduino or ESP32, the system must interface with <code>/dev/ttyUSB0</code> or similar character devices. This requires the <strong>termux-api</strong> and specific permissions to access the Android USB Host subsystem.</p>
+
+    <div class="terminal">
+        # Install the Termux:API package<br>
+        $ pkg install termux-api<br><br>
+        # List connected USB devices<br>
+        $ termux-usb -l
+    </div>
+
+    <h2>2. Interfacing with Python & PySerial</h2>
+    <p>Python is the architect's tool for rapid hardware prototyping. By using the <code>pyserial</code> library, we can send binary instructions from our custom environment to a physical microcontroller.</p>
+
+    <div class="terminal">
+        # Install PySerial in your Alpine/Native environment<br>
+        $ pip install pyserial
+    </div>
+
+    <div class="note">
+        <strong>Architect's Logic:</strong> Integrating hardware support into your mobile OS architecture expands its utility from a simple terminal to a powerful industrial controller.
+    </div>
+
+    <footer>
+        <hr>
+        <p><a href="read-topic.html">⬅ Back to Topics</a> | <a href="chap13.html">Next: System Security ➡</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

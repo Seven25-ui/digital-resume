@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: File Systems | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #7ee787; padding: 15px; border-radius: 5px; border-left: 4px solid #238636; margin: 20px 0; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Chapter 8: File System Architecture</h1>
+    <p>Data integrity is the foundation of any OS. In the Android/Termux ecosystem, we primarily interact with <strong>Ext4</strong> and <strong>F2FS</strong> (Flash-Friendly File System).</p>
+
+    <h2>1. Storage Optimization</h2>
+    <p>Choosing F2FS optimizes write operations for NAND flash storage, while Ext4 provides maximum stability for critical system files.</p>
+    <div class="terminal">
+        # Identify active file systems and mount options<br>$ mount | grep /data
+    </div>
+
+    <footer>
+        <hr>
+        <p><a href="chap7.html">⬅ Previous</a> | <a href="chap9.html">Next: Process Scheduling ➡</a></p>
+    </footer>
+</div>
+</body>
+</html>

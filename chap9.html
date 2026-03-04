@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 9: CPU Scheduling | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #7ee787; padding: 15px; border-radius: 5px; border-left: 4px solid #238636; margin: 20px 0; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Chapter 9: Process Scheduling</h1>
+    <p>The Linux Kernel uses a scheduler to distribute CPU time. To ensure development tasks aren't interrupted, you must master <strong>Nice</strong> values and <strong>Priority Management</strong>.</p>
+
+    
+
+    <h2>1. Priority Control</h2>
+    <p>Proper scheduling ensures that real-time system components receive the necessary cycles during peak loads.</p>
+    <div class="terminal">
+        # Monitor CPU Priority (NI column)<br>$ top<br><br>
+        # Adjust priority of a running PID<br>$ renice -n -10 -p [PID_NUMBER]
+    </div>
+
+    <footer>
+        <hr>
+        <p><a href="chap8.html">⬅ Previous</a> | <a href="chap10.html">Next: Virtualization ➡</a></p>
+    </footer>
+</div>
+</body>
+</html>

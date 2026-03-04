@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6: Kernel Optimization | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #7ee787; padding: 15px; border-radius: 5px; border-left: 4px solid #238636; margin: 20px 0; font-size: 0.9em; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Chapter 6: Advanced Kernel Optimization</h1>
+    <p>In high-performance OS development, the stock kernel configuration is often insufficient. As an Architect, you must fine-tune the "Heart of the OS" to achieve low latency and efficient hardware response.</p>
+    
+    <h2>1. Initial System Diagnostics</h2>
+    <p>Before modifying system parameters, it is critical to understand the current state of your environment using the following diagnostics:</p>
+    <div class="terminal">
+        # Identify Kernel Version and Architecture<br>$ uname -a<br><br>
+        # Check Memory and Resource Allocation<br>$ free -m
+    </div>
+
+    <h2>2. Performance Philosophy</h2>
+    <p>Optimization is the art of removing bottlenecks. By analyzing CPU cycles and memory overhead, we can create a leaner, more responsive system for mobile-based development.</p>
+
+    <footer>
+        <hr>
+        <p><a href="index.html">⬅ Home</a> | <a href="chap7.html">Next: Memory Management ➡</a></p>
+    </footer>
+</div>
+</body>
+</html>

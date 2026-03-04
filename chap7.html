@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 7: Memory & ZRAM | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #7ee787; padding: 15px; border-radius: 5px; border-left: 4px solid #238636; margin: 20px 0; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Chapter 7: Memory Management & ZRAM</h1>
+    <p>Mobile hardware faces significant RAM constraints. To overcome this, we implement <strong>ZRAM</strong>—a kernel feature that creates a compressed block device within the RAM itself.</p>
+    
+    
+
+    <h2>1. Compression Logic</h2>
+    <p>By leveraging a 2:1 compression ratio, we effectively expand available memory for heavy compilation tasks without relying on slower physical storage swaps.</p>
+    <div class="terminal">
+        # Check ZRAM activation status<br>$ zramctl<br><br>
+        # Analyze swap priorities and mount points<br>$ cat /proc/swaps
+    </div>
+
+    <footer>
+        <hr>
+        <p><a href="chap6.html">⬅ Previous</a> | <a href="chap8.html">Next: File Systems ➡</a></p>
+    </footer>
+</div>
+</body>
+</html>

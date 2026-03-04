@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 17: Binary Linking & Libraries | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #7ee787; padding: 15px; border-radius: 5px; border-left: 4px solid #238636; margin: 20px 0; font-size: 0.9em; }
+        .note { background-color: #1f2937; border-left: 4px solid #d2a8ff; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chapter 17: Binary Linking & Libraries</h1>
+    <p>In OS development, how a program connects to its helper functions defines its portability. This process is called <strong>Linking</strong>. As an Architect, you must choose between <em>Static</em> and <em>Dynamic</em> linking based on your system goals.</p>
+
+    <h2>1. Static vs. Dynamic Linking</h2>
+    <p><strong>Static Linking:</strong> All required library code is copied into the final binary. 
+    <br><em>Pro:</em> Highly portable; works in any environment. 
+    <br><em>Con:</em> Larger file size.</p>
+
+    <p><strong>Dynamic (Shared) Linking:</strong> The binary only contains references to libraries (like <code>libc.so</code>). 
+    <br><em>Pro:</em> Saves memory and storage. 
+    <br><em>Con:</em> Fails to run if the library is missing.</p>
+
+    
+
+    <h2>2. Investigating Binaries with 'ldd' and 'readelf'</h2>
+    <p>To see what "bloodline" or dependencies a program has, we use standard Linux diagnostic tools.</p>
+
+    <div class="terminal">
+        # Check shared library dependencies<br>
+        $ ldd /bin/ls<br><br>
+        # Deep dive into the ELF (Executable and Linkable Format) header<br>
+        $ readelf -h ./my_compiled_binary
+    </div>
+
+    <div class="note">
+        <strong>Architect's Insight:</strong> For a mobile-first OS built in Termux, using <strong>Static Linking</strong> for core system tools is often safer to avoid "Library Mismatch" errors when switching between Android versions.
+    </div>
+
+    <footer>
+        <hr>
+        <p><a href="read-topic.html">⬅ Back to Topics</a> | <a href="chap18.html">Next: Android Binder IPC Deep Dive ➡</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

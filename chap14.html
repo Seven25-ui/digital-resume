@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14: Cross-Compilation Tactics | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #7ee787; padding: 15px; border-radius: 5px; border-left: 4px solid #238636; margin: 20px 0; font-size: 0.9em; }
+        .note { background-color: #1f2937; border-left: 4px solid #d2a8ff; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chapter 14: Cross-Compilation Tactics</h1>
+    <p>As a System Architect using <strong>Termux</strong>, you are likely operating on an <em>AArch64</em> (ARM64) environment. However, a universal OS must support multiple architectures. <strong>Cross-Compilation</strong> allows you to build binaries for <em>x86_64</em> or <em>ARMv7</em> directly from your mobile device.</p>
+
+    <h2>1. Setting up the Toolchain</h2>
+    <p>In Termux, we use the <code>clang</code> and <code>binutils</code> packages to manage our compilation pipeline. To target different architectures, we must define the specific target triple.</p>
+
+    <div class="terminal">
+        # Install the build environment<br>
+        $ pkg install clang make binutils<br><br>
+        # Example: Compiling for a different architecture<br>
+        $ clang -target x86_64-pc-linux-gnu my_os_kernel.c -o kernel.x86
+    </div>
+
+    
+
+    <h2>2. Handling Dependencies</h2>
+    <p>Cross-compiling is tricky because of libraries. In the Termux environment, we often use <strong>Static Linking</strong> to ensure that our binaries carry all necessary code, making them portable across different systems.</p>
+
+    <div class="note">
+        <strong>Architect's Insight:</strong> Mastering the toolchain in Termux proves that your mobile device isn't just a terminal—it's a full-scale <strong>Development Workstation</strong> capable of producing software for any machine. [cite: 2026-03-04]
+    </div>
+
+    <footer>
+        <hr>
+        <p><a href="read-topic.html">⬅ Back to Topics</a> | <a href="chap15.html">Next: Final Deployment ➡</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

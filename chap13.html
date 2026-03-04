@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 13: System Hardening & Security | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #ff7b72; padding: 15px; border-radius: 5px; border-left: 4px solid #f85149; margin: 20px 0; font-size: 0.9em; }
+        .warning { background-color: rgba(248, 81, 73, 0.1); border: 1px solid #f85149; color: #ff7b72; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chapter 13: System Hardening & Security</h1>
+    <p>In the realm of OS development, a system is only as strong as its weakest vulnerability. <strong>System Hardening</strong> is the process of securing a system by reducing its surface of vulnerability through the removal of unnecessary software, usernames, or facial logins, and the closing of unused ports.</p>
+
+    <h2>1. Secure Shell (SSH) Hardening</h2>
+    <p>When accessing your Termux environment remotely, default configurations are often targets for brute-force attacks. We must enforce <strong>Public Key Authentication</strong> and disable password-based logins.</p>
+
+    <div class="terminal">
+        # Edit the SSH configuration file<br>
+        $ nano $PREFIX/etc/ssh/sshd_config<br><br>
+        # Key Security Settings:<br>
+        PasswordAuthentication no<br>
+        PermitRootLogin no<br>
+        PubkeyAuthentication yes
+    </div>
+
+    <h2>2. Network Auditing with Nmap</h2>
+    <p>As an Architect, you must audit your own system to identify open ports that could serve as entry points for intruders.</p>
+
+    <div class="terminal">
+        # Scan your local environment for open ports<br>
+        $ nmap localhost
+    </div>
+
+    <div class="warning">
+        <strong>Security Protocol:</strong> Always operate under the "Principle of Least Privilege." Never run processes with root/superuser permissions unless absolutely necessary for the task at hand.
+    </div>
+
+    <footer>
+        <hr>
+        <p><a href="read-topic.html">⬅ Back to Topics</a> | <a href="chap14.html">Next: Cross-Compilation ➡</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

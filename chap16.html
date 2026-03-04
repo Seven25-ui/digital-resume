@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 16: Custom BusyBox Compilation | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #7ee787; padding: 15px; border-radius: 5px; border-left: 4px solid #238636; margin: 20px 0; font-size: 0.9em; }
+        .note { background-color: #1f2937; border-left: 4px solid #d2a8ff; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chapter 16: Custom BusyBox Compilation</h1>
+    <p>In the world of embedded systems and minimalist operating systems, <strong>BusyBox</strong> is the ultimate tool. It combines tiny versions of many common UNIX utilities into a single small executable.</p>
+
+    <h2>1. The Source Code Setup</h2>
+    <p>To create a bespoke system environment, we must compile BusyBox from source, allowing us to enable or disable specific applets based on our OS requirements.</p>
+
+    <div class="terminal">
+        # Download the latest BusyBox source<br>
+        $ wget https://busybox.net/downloads/busybox-1.36.1.tar.bz2<br><br>
+        # Extract and enter the directory<br>
+        $ tar -xjf busybox-1.36.1.tar.bz2 && cd busybox-1.36.1
+    </div>
+
+    
+
+    <h2>2. Configuration & Static Linking</h2>
+    <p>Using <code>make menuconfig</code>, we navigate to <em>Settings</em> and enable <strong>"Build static binary (no shared libs)"</strong>. This ensures that our utilities can run in an environment with no pre-installed libraries.</p>
+
+    <div class="terminal">
+        # Launch the configuration menu<br>
+        $ make menuconfig<br><br>
+        # Compile the binary<br>
+        $ make -j$(nproc)<br><br>
+        # Install to a local directory<br>
+        $ make install CONFIG_PREFIX=./_install
+    </div>
+
+    <div class="note">
+        <strong>Architect's Challenge:</strong> A custom-compiled BusyBox can reduce your system's core utility footprint to less than 2MB while retaining full functionality.
+    </div>
+
+    <footer>
+        <hr>
+        <p><a href="read-topic.html">⬅ Back to Topics</a> | <a href="chap17.html">Next: Binary Linking & Libraries ➡</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

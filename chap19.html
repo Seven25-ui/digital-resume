@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 19: Building a Package Manager | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #7ee787; padding: 15px; border-radius: 5px; border-left: 4px solid #238636; margin: 20px 0; font-size: 0.9em; }
+        .flow-box { border: 1px dashed #d2a8ff; padding: 15px; background: #1f2937; border-radius: 4px; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chapter 19: Building a Package Manager</h1>
+    <p>A <strong>Package Manager</strong> is the backbone of software distribution. It handles dependency resolution, versioning, and installation paths. For your custom OS environment, you can architect a lightweight manager using simple shell logic and <code>tar</code> archives.</p>
+
+    <h2>1. The Repository Structure</h2>
+    <p>A remote repository is essentially a web server hosting compressed binaries and a metadata file (index) that lists all available packages and their checksums (MD5/SHA256).</p>
+
+    
+
+    <div class="flow-box">
+        <strong>Package Workflow:</strong><br>
+        1. <strong>Fetch:</strong> Download the metadata index.<br>
+        2. <strong>Resolve:</strong> Check for required dependencies.<br>
+        3. <strong>Extract:</strong> Decompress the binary to the system root.<br>
+        4. <strong>Register:</strong> Save the installation record to a local database.
+    </div>
+
+    <h2>2. Creating a "Tiny-Pkg" Script</h2>
+    <p>You can simulate a package manager in Termux by creating a script that pulls binaries from your own GitHub repository or local server.</p>
+
+    <div class="terminal">
+        # Basic logic for a custom installer<br>
+        $ nano install_pkg.sh<br><br>
+        # Script Content:<br>
+        curl -O http://your-repo.com/packages/$1.tar.gz<br>
+        tar -xzf $1.tar.gz -C /data/data/com.termux/files/usr/<br>
+        echo "$1 installed successfully." >> /var/log/packages.log
+    </div>
+
+    <h2>3. Dependency Management</h2>
+    <p>Advanced architects implement a "Dependency Tree." If Package A requires Library B, the manager must automatically detect and install Library B first to avoid <em>Linking Errors</em>.</p>
+
+    <footer>
+        <hr>
+        <p><a href="read-topic.html">⬅ Back to Topics</a> | <a href="chap20.html">Next: The Architect's Final Thesis ➡</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

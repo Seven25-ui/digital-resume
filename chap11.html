@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 11: Shell Automation | Seven33 Academy</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
+        h1, h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .terminal { background-color: #000; color: #7ee787; padding: 15px; border-radius: 5px; border-left: 4px solid #238636; margin: 20px 0; }
+        .code-block { background-color: #0d1117; border: 1px dashed #30363d; padding: 10px; color: #d2a8ff; }
+        a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Chapter 11: Automation with Shell Scripting</h1>
+    <p>A true System Architect never repeats a task manually. Shell scripting allows us to automate the deployment, monitoring, and optimization of our OS environment. In this chapter, we focus on <strong>Bash/Ash</strong> scripting within the Alpine Linux layer.</p>
+
+    <h2>1. The Anatomy of an Automation Script</h2>
+    <p>Every script starts with a <em>Shebang</em>, which tells the kernel which interpreter to use. For Alpine Linux, we typically use <code>#!/bin/sh</code>.</p>
+    
+    <div class="terminal">
+        # Create an auto-optimization script<br>
+        $ nano optimize.sh
+    </div>
+
+    <div class="code-block">
+        #!/bin/sh<br>
+        echo "Starting System Optimization..."<br>
+        # Clear Cache<br>
+        sync; echo 3 > /proc/sys/vm/drop_caches<br>
+        # Adjust ZRAM priority<br>
+        renice -n -10 -p $(pgrep zram)<br>
+        echo "Optimization Complete."
+    </div>
+
+    <h2>2. Execution and Permissions</h2>
+    <p>Scripts must be granted executable permissions before they can run. This is a security feature of the Linux File System Architecture.</p>
+    <div class="terminal">
+        # Grant executable permission<br>$ chmod +x optimize.sh<br><br>
+        # Run the automation<br>$ ./optimize.sh
+    </div>
+
+    
+
+    <footer>
+        <hr>
+        <p><a href="read-topic.html">⬅ Back to Curriculum</a> | <a href="chap12.html">Next: IoT Integration ➡</a></p>
+    </footer>
+</div>
+</body>
+</html>
