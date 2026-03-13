@@ -6,6 +6,11 @@
     <priority>1.00</priority>
   </url>
   <url>
+    <loc>https://seven33.site/automation-hub.html</loc>
+    <lastmod>2026-03-13</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://seven33.site/read-topic.html</loc>
     <lastmod>2026-03-13</lastmod>
     <priority>0.90</priority>
@@ -41,4 +46,15 @@
   <url><loc>https://seven33.site/chap18.html</loc><lastmod>2026-03-13</lastmod><priority>0.80</priority></url>
   <url><loc>https://seven33.site/chap19.html</loc><lastmod>2026-03-13</lastmod><priority>0.80</priority></url>
   <url><loc>https://seven33.site/chap20.html</loc><lastmod>2026-03-13</lastmod><priority>0.80</priority></url>
+
+  <url><loc>https://seven33.site/chap21.html</loc><lastmod>2026-03-13</lastmod><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap22.html</loc><lastmod>2026-03-13</lastmod><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap23.html</loc><lastmod>2026-03-13</lastmod><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap24.html</loc><lastmod>2026-03-13</lastmod><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap25.html</loc><lastmod>2026-03-13</lastmod><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap26.html</loc><lastmod>2026-03-13</lastmod><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap27.html</loc><lastmod>2026-03-13</lastmod><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap28.html</loc><lastmod>2026-03-13</lastmod><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap29.html</loc><lastmod>2026-03-13</lastmod><priority>0.85</priority></url>
+  <url><loc>https://seven33.site/chap30.html</loc><lastmod>2026-03-13</lastmod><priority>0.85</priority></url>
 </urlset>
