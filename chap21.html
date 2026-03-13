@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 21: Bash Scripting Essentials | Matrix Digital</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #161b22;
+            padding: 40px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+        h1 { color: #7ee787; border-bottom: 2px solid #7ee787; padding-bottom: 10px; }
+        h2 { color: #58a6ff; margin-top: 30px; }
+        code {
+            background: #0d1117;
+            color: #ff7b72;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        pre {
+            background: #0d1117;
+            padding: 15px;
+            border-left: 4px solid #7ee787;
+            overflow-x: auto;
+            color: #d2a8ff;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .highlight { color: #d29922; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="content-wrap">
+    <a href="automation-hub.html" class="btn-back">← Back to Automation Hub</a>
+    
+    <h1>Chapter 21: Bash Scripting Essentials</h1>
+    <p>In this chapter, we transition from being simple terminal users to <strong>System Architects</strong>. We will learn how to automate repetitive tasks using Bash Scripting in our Termux-Debian environment.</p>
+
+    <h2>1. The Anatomy of a Bash Script</h2>
+    <p>Every script must start with a <span class="highlight">Shebang</span>. This tells the system which interpreter to use to execute the code.</p>
+    <pre>#!/bin/bash
+# This is a comment - it is not executed</pre>
+
+    <h2>2. Creating Your First Automation Script</h2>
+    <p>Let's build a <strong>System Maintenance Script</strong> that updates the system and cleans up unnecessary files in one go.</p>
+    
+    <p>Create the file: <code>nano maintenance.sh</code></p>
+    <pre>
+#!/bin/bash
+
+echo ">>> Starting System Maintenance..."
+
+# Update and Upgrade
+sudo apt update && sudo apt upgrade -y
+
+# Clean up
+sudo apt autoremove -y
+sudo apt autoclean
+
+echo ">>> Maintenance Complete! Matrix is optimized."
+    </pre>
+
+    <h2>3. Permissions and Execution</h2>
+    <p>By default, a new file is not executable. You need to modify its mode using <code>chmod</code>:</p>
+    <pre>chmod +x maintenance.sh</pre>
+    <p>Now you can run it using: <code>./maintenance.sh</code></p>
+
+    <h2>4. Variables and Logic</h2>
+    <p>Automation becomes powerful when we use variables. This allows us to handle dynamic data like dates and file paths.</p>
+    <pre>
+#!/bin/bash
+USER_NAME="Architect_Loy"
+CURRENT_DATE=$(date)
+
+echo "Hello $USER_NAME, the current system time is $CURRENT_DATE"
+    </pre>
+
+    <h2>5. Why This Matters for AdSense</h2>
+    <p>Google looks for <strong>expertise</strong>. Documenting how you solve real-world problems through automation proves that your site provides unique value to the developer community. This isn't just a blog; it's a technical resource.</p>
+
+    <div style="margin-top: 40px; padding: 20px; border-top: 1px solid #30363d; text-align: center;">
+        <p style="color: #8b949e;">Next Chapter: Python for System Administration (Coming Soon)</p>
+    </div>
+</div>
+
+</body>
+</html>
