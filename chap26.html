@@ -1,17 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chapter Pending | Matrix Digital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 26: API Integration in Termux | Matrix Digital</title>
     <style>
-        body { background: #0d1117; color: #58a6ff; font-family: monospace; text-align: center; padding: 50px; }
-        .box { border: 1px solid #30363d; padding: 20px; display: inline-block; border-radius: 8px; }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #161b22;
+            padding: 40px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+        h1 { color: #7ee787; border-bottom: 2px solid #7ee787; padding-bottom: 10px; }
+        h2 { color: #58a6ff; margin-top: 30px; }
+        code {
+            background: #0d1117;
+            color: #ff7b72;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #0d1117;
+            padding: 15px;
+            border-left: 4px solid #7ee787;
+            overflow-x: auto;
+            color: #d2a8ff;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .api-concept {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>[ CHAPTER_UNDER_CONSTRUCTION ]</h1>
-        <p>Architect Loy is currently compiling this data... Check back soon.</p>
-        <a href="automation-hub.html" style="color: #7ee787;">Back to Hub</a>
+
+<div class="content-wrap">
+    <a href="automation-hub.html" class="btn-back">← Back to Automation Hub</a>
+    
+    <h1>Chapter 26: API Integration in Termux</h1>
+    <p>A System Architect doesn't work in isolation. In this chapter, we will learn how to connect our scripts to the outside world using <strong>REST APIs</strong>. We will focus on using Python's <code>requests</code> library to fetch and send data.</p>
+
+    <div class="api-concept">
+        <strong>Concept:</strong> Your Script (Client) ➔ HTTP Request ➔ API Server ➔ JSON Response ➔ Your Script
     </div>
+
+    <h2>1. Installing the Connectivity Tools</h2>
+    <p>We need the <code>requests</code> module, which is the industry standard for HTTP in Python:</p>
+    <pre>pip3 install requests</pre>
+
+    <h2>2. Building a Real-Time Data Fetcher</h2>
+    <p>Let's create a script that fetches the current Bitcoin price—a classic example of API usage. Create: <code>nano btc_price.py</code></p>
+    
+    <pre>
+import requests
+
+def get_btc_price():
+    url = "https://api.coindesk.com/v1/bpi/currentprice.json"
+    response = requests.get(url)
+    data = response.json()
+    
+    price = data['bpi']['USD']['rate']
+    print(f"--- MATRIX MARKET DATA ---")
+    print(f"Current BTC Price: ${price} USD")
+
+if __name__ == "__main__":
+    get_btc_price()
+    </pre>
+
+    <h2>3. Automating Notifications</h2>
+    <p>You can combine this with **Telegram's Bot API** to send yourself an alert if a certain condition is met (e.g., if a server goes down or a price drops). This is how modern monitoring systems are built.</p>
+
+    <h2>4. JSON Parsing</h2>
+    <p>Most APIs return data in <strong>JSON</strong> format. Python makes it easy to convert this into a dictionary using <code>.json()</code>, allowing you to access specific data points with ease.</p>
+
+    <div style="margin-top: 40px; padding: 20px; border-top: 1px solid #30363d; text-align: center;">
+        <p style="color: #8b949e;">Next Chapter: Log Rotation & Management (Coming Soon)</p>
+    </div>
+</div>
+
 </body>
 </html>

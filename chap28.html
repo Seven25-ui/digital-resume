@@ -1,17 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chapter Pending | Matrix Digital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 28: Automated Security Patching | Matrix Digital</title>
     <style>
-        body { background: #0d1117; color: #58a6ff; font-family: monospace; text-align: center; padding: 50px; }
-        .box { border: 1px solid #30363d; padding: 20px; display: inline-block; border-radius: 8px; }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #161b22;
+            padding: 40px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+        h1 { color: #f85149; border-bottom: 2px solid #f85149; padding-bottom: 10px; }
+        h2 { color: #58a6ff; margin-top: 30px; }
+        .shield-icon {
+            text-align: center;
+            font-size: 50px;
+            color: #f85149;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: #0d1117;
+            padding: 15px;
+            border-left: 4px solid #f85149;
+            overflow-x: auto;
+            color: #d2a8ff;
+        }
+        .info-card {
+            background: rgba(88, 166, 255, 0.1);
+            border: 1px solid #58a6ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>[ CHAPTER_UNDER_CONSTRUCTION ]</h1>
-        <p>Architect Loy is currently compiling this data... Check back soon.</p>
-        <a href="automation-hub.html" style="color: #7ee787;">Back to Hub</a>
+
+<div class="content-wrap">
+    <a href="automation-hub.html" class="btn-back">← Back to Automation Hub</a>
+    
+    <div class="shield-icon">🛡️</div>
+    <h1>Chapter 28: Automated Security Patching</h1>
+    <p>In the digital world, new vulnerabilities are discovered every day. A System Architect's duty is to ensure that the Matrix is always patched. We will automate the update process so that your Debian system stays secure without manual intervention.</p>
+
+    <div class="info-card">
+        <strong>Why Automate Updates?</strong> Hackers often use automated bots to find unpatched systems. By automating your security updates, you close the door before they can even knock.
     </div>
+
+    <h2>1. The "Unattended-Upgrades" Utility</h2>
+    <p>Debian has a powerful package called <code>unattended-upgrades</code>. It handles the installation of security patches automatically.</p>
+    <pre>sudo apt update && sudo apt install unattended-upgrades -y</pre>
+
+    <h2>2. Configuration</h2>
+    <p>To enable it, you need to run the configuration wizard:</p>
+    <pre>sudo dpkg-reconfigure -plow unattended-upgrades</pre>
+    <p>Select <strong>"Yes"</strong> to enable automatic downloads and installations of security updates.</p>
+
+    <h2>3. Custom Automation Script</h2>
+    <p>If you prefer a custom Bash script to log the updates, you can use this:</p>
+    <pre>
+#!/bin/bash
+# Log file path
+LOG_FILE="/home/loy/Digital/logs/security_patch.log"
+
+echo "--- Security Check: $(date) ---" >> $LOG_FILE
+sudo apt update && sudo apt upgrade -y >> $LOG_FILE
+echo ">>> System Patched Successfully." >> $LOG_FILE
+    </pre>
+
+    <h2>4. Scheduling the Patch</h2>
+    <p>Most Architects schedule security updates during "Low Traffic" hours (e.g., 3:00 AM). Add this to your <code>crontab -e</code>:</p>
+    <pre>0 3 * * * /bin/bash /home/loy/Digital/security_patch.sh</pre>
+
+    <div style="margin-top: 40px; padding: 20px; border-top: 1px solid #30363d; text-align: center;">
+        <p style="color: #8b949e;">Next Chapter: DevOps Pipeline Basics (Coming Soon)</p>
+    </div>
+</div>
+
 </body>
 </html>

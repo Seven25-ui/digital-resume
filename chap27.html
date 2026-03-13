@@ -1,17 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chapter Pending | Matrix Digital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 27: Log Rotation & Management | Matrix Digital</title>
     <style>
-        body { background: #0d1117; color: #58a6ff; font-family: monospace; text-align: center; padding: 50px; }
-        .box { border: 1px solid #30363d; padding: 20px; display: inline-block; border-radius: 8px; }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #161b22;
+            padding: 40px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+        h1 { color: #f2cc60; border-bottom: 2px solid #f2cc60; padding-bottom: 10px; }
+        h2 { color: #58a6ff; margin-top: 30px; }
+        .logic-box {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #f2cc60;
+        }
+        pre {
+            background: #0d1117;
+            padding: 15px;
+            border: 1px solid #30363d;
+            overflow-x: auto;
+            color: #7ee787;
+        }
+        code { color: #ff7b72; }
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>[ CHAPTER_UNDER_CONSTRUCTION ]</h1>
-        <p>Architect Loy is currently compiling this data... Check back soon.</p>
-        <a href="automation-hub.html" style="color: #7ee787;">Back to Hub</a>
+
+<div class="content-wrap">
+    <a href="automation-hub.html" class="btn-back">← Back to Automation Hub</a>
+    
+    <h1>Chapter 27: Log Rotation & Management</h1>
+    <p>Every automated script generates data. If you don't manage this data, your system's storage will eventually hit 100%, causing a total system failure. This is where <strong>Log Rotation</strong> comes in.</p>
+
+    <h2>1. The Problem: "Log Bloat"</h2>
+    <div class="logic-box">
+        <strong>Scenario:</strong> Your backup script runs every hour and writes a 1MB log. In a year, that's nearly 9GB of just text files!
     </div>
+
+    <h2>2. Using the Linux <code>logrotate</code> Utility</h2>
+    <p>Linux has a built-in tool called <code>logrotate</code>. It automatically compresses, renames, or deletes old log files based on their age or size.</p>
+    
+    <p>Example configuration for your custom Matrix logs:</p>
+    <pre>
+/home/loy/Digital/logs/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+}
+    </pre>
+    <ul>
+        <li><strong>daily:</strong> Rotate the log every day.</li>
+        <li><strong>rotate 7:</strong> Keep only the last 7 days of logs.</li>
+        <li><strong>compress:</strong> Zip the old logs to save space (<code>.gz</code>).</li>
+    </ul>
+
+    <h2>3. Manual Cleanup Script</h2>
+    <p>If you want to build your own "Janitor Script" using Bash to delete logs older than 30 days:</p>
+    <pre>
+#!/bin/bash
+# Find and delete files ending in .log older than 30 days
+find /home/loy/Digital/logs/ -name "*.log" -type f -mtime +30 -delete
+    </pre>
+
+    <h2>4. Why Architects Love This</h2>
+    <p>A "self-cleaning" system is a professional system. Implementing this shows that you're not just a coder, but a <strong>Reliability Engineer</strong>.</p>
+
+    <div style="margin-top: 40px; padding: 20px; border-top: 1px solid #30363d; text-align: center;">
+        <p style="color: #8b949e;">Next Chapter: Automated Security Patching (Coming Soon)</p>
+    </div>
+</div>
+
 </body>
 </html>

@@ -1,17 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chapter Pending | Matrix Digital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 23: Automated Network Audits | Matrix Digital</title>
     <style>
-        body { background: #0d1117; color: #58a6ff; font-family: monospace; text-align: center; padding: 50px; }
-        .box { border: 1px solid #30363d; padding: 20px; display: inline-block; border-radius: 8px; }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #161b22;
+            padding: 40px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+        h1 { color: #ff7b72; border-bottom: 2px solid #ff7b72; padding-bottom: 10px; }
+        h2 { color: #58a6ff; margin-top: 30px; }
+        code {
+            background: #0d1117;
+            color: #7ee787;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #0d1117;
+            padding: 15px;
+            border-left: 4px solid #ff7b72;
+            overflow-x: auto;
+            color: #d2a8ff;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .warning {
+            background: rgba(248, 81, 73, 0.1);
+            border: 1px solid #f85149;
+            padding: 15px;
+            border-radius: 5px;
+            color: #ff7b72;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>[ CHAPTER_UNDER_CONSTRUCTION ]</h1>
-        <p>Architect Loy is currently compiling this data... Check back soon.</p>
-        <a href="automation-hub.html" style="color: #7ee787;">Back to Hub</a>
+
+<div class="content-wrap">
+    <a href="automation-hub.html" class="btn-back">← Back to Automation Hub</a>
+    
+    <h1>Chapter 23: Automated Network Audits</h1>
+    <p>As a System Architect, you must ensure that your network is secure. Manual scanning is slow. Today, we will automate the process of identifying open ports and active services using <strong>Nmap</strong> and <strong>Python</strong>.</p>
+
+    <div class="warning">
+        <strong>SECURITY NOTE:</strong> Only scan networks and devices that you own or have explicit permission to audit. Unauthorized scanning is unethical and often illegal.
     </div>
+
+    <h2>1. Equipping the Matrix</h2>
+    <p>First, we need to install the necessary tools in our Debian environment:</p>
+    <pre>sudo apt update && sudo apt install nmap python3-nmap -y</pre>
+
+    <h2>2. Building the Automated Scanner</h2>
+    <p>We will write a Python script that scans a specific IP range and logs the results into a file automatically. Create: <code>nano net_audit.py</code></p>
+    
+    <pre>
+import nmap
+import datetime
+
+# Initialize Port Scanner
+nm = nmap.PortScanner()
+target = "127.0.0.1" # Change to your local IP
+
+print(f"--- SCANNING TARGET: {target} ---")
+nm.scan(target, '21-443')
+
+with open("audit_log.txt", "a") as f:
+    f.write(f"\nAudit Date: {datetime.datetime.now()}\n")
+    for host in nm.all_hosts():
+        f.write(f"Host: {host} ({nm[host].hostname()})\n")
+        f.write(f"State: {nm[host].state()}\n")
+        for proto in nm[host].all_protocols():
+            lport = nm[host][proto].keys()
+            for port in lport:
+                f.write(f"Port: {port}\tState: {nm[host][proto][port]['state']}\n")
+
+print(">>> Audit Complete. Results saved to audit_log.txt")
+    </pre>
+
+    <h2>3. Automating the Audit</h2>
+    <p>To make this truly automated, you can combine this with a Bash script or a Cron job to run every weekend and keep a history of your network's security posture.</p>
+
+    <div style="margin-top: 40px; padding: 20px; border-top: 1px solid #30363d; text-align: center;">
+        <p style="color: #8b949e;">Next Chapter: Cron Job Mastery (Coming Soon)</p>
+    </div>
+</div>
+
 </body>
 </html>

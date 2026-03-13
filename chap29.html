@@ -1,17 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chapter Pending | Matrix Digital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 29: DevOps Pipeline Basics | Matrix Digital</title>
     <style>
-        body { background: #0d1117; color: #58a6ff; font-family: monospace; text-align: center; padding: 50px; }
-        .box { border: 1px solid #30363d; padding: 20px; display: inline-block; border-radius: 8px; }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #161b22;
+            padding: 40px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+        h1 { color: #d2a8ff; border-bottom: 2px solid #d2a8ff; padding-bottom: 10px; }
+        h2 { color: #58a6ff; margin-top: 30px; }
+        .pipeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0d1117;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px dashed #d2a8ff;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        .step { border: 1px solid #58a6ff; padding: 10px; border-radius: 5px; }
+        pre {
+            background: #0d1117;
+            padding: 15px;
+            border-left: 4px solid #d2a8ff;
+            overflow-x: auto;
+            color: #7ee787;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>[ CHAPTER_UNDER_CONSTRUCTION ]</h1>
-        <p>Architect Loy is currently compiling this data... Check back soon.</p>
-        <a href="automation-hub.html" style="color: #7ee787;">Back to Hub</a>
+
+<div class="content-wrap">
+    <a href="automation-hub.html" class="btn-back">← Back to Automation Hub</a>
+    
+    <h1>Chapter 29: DevOps Pipeline Basics</h1>
+    <p>In modern software development, we don't just "upload files." We use a <strong>Pipeline</strong>. This ensures that every piece of code is tested and verified before it goes live. This is the heart of DevOps.</p>
+
+    <div class="pipeline">
+        <div class="step">CODE<br>(Git)</div>
+        <div>➔</div>
+        <div class="step">BUILD<br>(Matrix)</div>
+        <div>➔</div>
+        <div class="step">TEST<br>(Scripts)</div>
+        <div>➔</div>
+        <div class="step">DEPLOY<br>(Live)</div>
     </div>
+
+    <h2>1. The Concept of CI/CD</h2>
+    <p><strong>Continuous Integration (CI):</strong> Automatically testing code as soon as it is pushed to Git.</p>
+    <p><strong>Continuous Deployment (CD):</strong> Automatically updating the live website once the tests pass.</p>
+
+    <h2>2. Building a Mini-Pipeline</h2>
+    <p>You can simulate a DevOps pipeline in Termux by creating a "Deploy Script" that only pushes to GitHub if the HTML files are valid. Create: <code>nano deploy.sh</code></p>
+    
+    <pre>
+#!/bin/bash
+echo ">>> Starting Pipeline..."
+
+# Step 1: Check if index.html exists
+if [ -f "index.html" ]; then
+    echo "Check Passed: Source files found."
+else
+    echo "Check Failed: index.html missing!"
+    exit 1
+fi
+
+# Step 2: Deploy to GitHub
+git add .
+git commit -m "Auto-deploy via Matrix Pipeline: $(date)"
+git push origin main
+
+echo ">>> Deployment Successful!"
+    </pre>
+
+    <h2>3. Why This Matters for AdSense</h2>
+    <p>Documenting your workflow—not just your code—proves that you are operating at a <strong>Senior Level</strong>. Google rewards sites that provide complex, professional-grade engineering insights.</p>
+
+    <div style="margin-top: 40px; padding: 20px; border-top: 1px solid #30363d; text-align: center;">
+        <p style="color: #8b949e;">Next Chapter: Final Integration & Site Launch (Coming Soon)</p>
+    </div>
+</div>
+
 </body>
 </html>

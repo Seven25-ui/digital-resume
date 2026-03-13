@@ -1,17 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chapter Pending | Matrix Digital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 24: Cron Job Mastery | Matrix Digital</title>
     <style>
-        body { background: #0d1117; color: #58a6ff; font-family: monospace; text-align: center; padding: 50px; }
-        .box { border: 1px solid #30363d; padding: 20px; display: inline-block; border-radius: 8px; }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #161b22;
+            padding: 40px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+        h1 { color: #d29922; border-bottom: 2px solid #d29922; padding-bottom: 10px; }
+        h2 { color: #58a6ff; margin-top: 30px; }
+        code {
+            background: #0d1117;
+            color: #7ee787;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #0d1117;
+            padding: 15px;
+            border-left: 4px solid #d29922;
+            overflow-x: auto;
+            color: #c9d1d9;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .cron-syntax {
+            background: #0d1117;
+            padding: 10px;
+            border: 1px dashed #d29922;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>[ CHAPTER_UNDER_CONSTRUCTION ]</h1>
-        <p>Architect Loy is currently compiling this data... Check back soon.</p>
-        <a href="automation-hub.html" style="color: #7ee787;">Back to Hub</a>
+
+<div class="content-wrap">
+    <a href="automation-hub.html" class="btn-back">← Back to Automation Hub</a>
+    
+    <h1>Chapter 24: Cron Job Mastery</h1>
+    <p>Real automation doesn't require a human to press "Enter." In Linux, the <strong>Cron</strong> daemon is our time-based job scheduler. It allows us to run scripts at specific intervals—daily, weekly, or even every minute.</p>
+
+    <h2>1. Understanding the Cron Syntax</h2>
+    <p>To master Cron, you must understand the five-star syntax. Each star represents a different unit of time:</p>
+    
+    <div class="cron-syntax">
+        * * * * *<br>
+        min hour day month weekday
     </div>
+
+    <ul>
+        <li><code>0 0 * * *</code> - Runs every day at midnight.</li>
+        <li><code>*/15 * * * *</code> - Runs every 15 minutes.</li>
+        <li><code>0 12 * * 1</code> - Runs every Monday at 12:00 PM.</li>
+    </ul>
+
+    <h2>2. Accessing the Crontab</h2>
+    <p>To edit your scheduled tasks in the Debian environment, use the command:</p>
+    <pre>crontab -e</pre>
+    <p><em>Note: If it's your first time, it might ask you to choose an editor. Select <code>nano</code>.</em></p>
+
+    <h2>3. Automating Your Network Audit</h2>
+    <p>Let's schedule the <code>net_audit.py</code> we created in Chapter 23 to run every Sunday at 11:00 PM. Add this line to the bottom of your crontab:</p>
+    <pre>0 23 * * 0 /usr/bin/python3 /home/loy/Digital/net_audit.py</pre>
+
+    <h2>4. Monitoring Cron Logs</h2>
+    <p>To check if your scheduled tasks are running correctly, you can view the system logs:</p>
+    <pre>grep CRON /var/log/syslog</pre>
+
+    <div style="margin-top: 40px; padding: 20px; border-top: 1px solid #30363d; text-align: center;">
+        <p style="color: #8b949e;">Next Chapter: Database Automation (Coming Soon)</p>
+    </div>
+</div>
+
 </body>
 </html>

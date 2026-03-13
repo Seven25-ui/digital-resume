@@ -1,17 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chapter Pending | Matrix Digital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 25: Database Automation | Matrix Digital</title>
     <style>
-        body { background: #0d1117; color: #58a6ff; font-family: monospace; text-align: center; padding: 50px; }
-        .box { border: 1px solid #30363d; padding: 20px; display: inline-block; border-radius: 8px; }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #161b22;
+            padding: 40px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+        h1 { color: #58a6ff; border-bottom: 2px solid #58a6ff; padding-bottom: 10px; }
+        h2 { color: #7ee787; margin-top: 30px; }
+        code {
+            background: #0d1117;
+            color: #d2a8ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #0d1117;
+            padding: 15px;
+            border-left: 4px solid #58a6ff;
+            overflow-x: auto;
+            color: #c9d1d9;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .db-flow {
+            border: 1px solid #30363d;
+            padding: 15px;
+            background: #0d1117;
+            margin: 20px 0;
+            text-align: center;
+            border-radius: 5px;
+            color: #7ee787;
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>[ CHAPTER_UNDER_CONSTRUCTION ]</h1>
-        <p>Architect Loy is currently compiling this data... Check back soon.</p>
-        <a href="automation-hub.html" style="color: #7ee787;">Back to Hub</a>
+
+<div class="content-wrap">
+    <a href="automation-hub.html" class="btn-back">← Back to Automation Hub</a>
+    
+    <h1>Chapter 25: Database Automation</h1>
+    <p>Data is the lifeblood of the Matrix. In this chapter, we will learn how to automate <strong>MariaDB/MySQL</strong> backups and basic database maintenance using Shell scripts and Cron.</p>
+
+    <div class="db-flow">
+        SQL Database ➔ SQL Dump ➔ Compression (Gzip) ➔ Remote Storage
     </div>
+
+    <h2>1. Setting up the Environment</h2>
+    <p>Ensure you have MariaDB installed in your Debian environment:</p>
+    <pre>sudo apt update && sudo apt install mariadb-server -y</pre>
+
+    <h2>2. The Automated Backup Script</h2>
+    <p>Instead of manually exporting your database, we will create a script that adds a timestamp to every backup. Create: <code>nano db_backup.sh</code></p>
+    
+    <pre>
+#!/bin/bash
+
+# Configuration
+DB_NAME="matrix_db"
+BACKUP_PATH="/home/loy/backups"
+DATE=$(date +%Y-%m-%d_%H%M)
+
+# Create backup directory if not exists
+mkdir -p $BACKUP_PATH
+
+# Execute Dump
+mysqldump -u root $DB_NAME > $BACKUP_PATH/$DB_NAME-$DATE.sql
+
+# Compress
+gzip $BACKUP_PATH/$DB_NAME-$DATE.sql
+
+echo ">>> Backup of $DB_NAME completed at $DATE"
+    </pre>
+
+    <h2>3. Automated Optimization</h2>
+    <p>Databases can become slow over time. We can automate the <code>OPTIMIZE TABLE</code> command to keep the Matrix running smoothly:</p>
+    <pre>mysqlcheck -o --all-databases -u root</pre>
+
+    <h2>4. Integration with Cron</h2>
+    <p>To run this backup every night at 2:00 AM, add this to your <code>crontab -e</code>:</p>
+    <pre>0 2 * * * /bin/bash /home/loy/Digital/db_backup.sh</pre>
+
+    <div style="margin-top: 40px; padding: 20px; border-top: 1px solid #30363d; text-align: center;">
+        <p style="color: #8b949e;">Next Chapter: API Integration in Termux (Coming Soon)</p>
+    </div>
+</div>
+
 </body>
 </html>
