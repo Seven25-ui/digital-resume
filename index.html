@@ -348,24 +348,24 @@
 
 <section id="terminal-link" style="padding: 40px 20px; background: #0d1117;">
     <div style="max-width: 800px; margin: 0 auto; border: 1px solid #30363d; border-radius: 8px; overflow: hidden; background: #161b22; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        
+
         <div style="background: #21262d; padding: 10px 15px; display: flex; align-items: center; border-bottom: 1px solid #30363d;">
             <div style="display: flex; gap: 6px;">
                 <div style="width: 12px; height: 12px; background: #ff5f56; border-radius: 50%;"></div>
                 <div style="width: 12px; height: 12px; background: #ffbd2e; border-radius: 50%;"></div>
                 <div style="width: 12px; height: 12px; background: #27c93f; border-radius: 50%;"></div>
             </div>
-            <div style="margin-left: 20px; color: #8b949e; font-size: 0.8rem; font-family: 'Courier New', monospace;">loy@matrix: ~/interactive-shell</div>
+            <div style="margin-left: 20px; color: #8b949e; font-size: 0.8rem; font-family: 'Courier New', monospace;">seven@matrix: ~/seven33-core</div>
         </div>
 
         <div style="padding: 25px; text-align: left; font-family: 'Courier New', monospace;">
-            <div style="color: #7ee787; margin-bottom: 10px;">> ACCESS GRANTED</div>
+            <div style="color: #7ee787; margin-bottom: 10px;">> SEVEN33_OS_INITIALIZED: SUCCESS</div>
             <div style="color: #c9d1d9; margin-bottom: 20px;">
-                <span style="color: #58a6ff;">loy@matrix:~$</span> execute --mode interactive
+                <span style="color: #58a6ff;">seven@matrix:~$</span> boot --interactive
                 <br>
-                <span style="color: #8b949e;">Initialize terminal simulation...</span>
+                <span style="color: #8b949e;">Status: Awaiting Architect input...</span>
             </div>
-            
+
             <div style="display: flex; justify-content: center; align-items: center; padding: 10px;">
                 <a href="terminal.html" style="
                     background: transparent;
@@ -378,9 +378,9 @@
                     transition: all 0.3s ease;
                     text-transform: uppercase;
                     letter-spacing: 2px;
-                " onmouseover="this.style.background='#238636'; this.style.color='#fff';" 
+                " onmouseover="this.style.background='#238636'; this.style.color='#fff';"
                    onmouseout="this.style.background='transparent'; this.style.color='#7ee787';">
-                    Launch Interactive Terminal
+                    Launch Seven33 Terminal
                 </a>
             </div>
         </div>
@@ -388,7 +388,7 @@
 </section>
 
 <style>
-    /* Cursor Blinking Animation for the entire Terminal Section vibe */
+    /* Global Cursor Blinking */
     #terminal-link a::after {
         content: '_';
         animation: cursorBlink 1s infinite;
