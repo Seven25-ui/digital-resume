@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Terminal | seven33.site</title>
+    <title>Matrix Terminal | Seven33.site</title>
     <style>
         body {
             background-color: #0d1117;
@@ -22,13 +22,14 @@
             padding: 20px;
             background: #161b22;
             border-radius: 8px;
-            box-shadow: 0 0 20px rgba(126, 231, 135, 0.1);
+            box-shadow: 0 0 20px rgba(126, 231, 135, 0.2);
         }
         .input-line {
             display: flex;
             margin-top: 10px;
+            align-items: center;
         }
-        .prompt { color: #58a6ff; margin-right: 10px; }
+        .prompt { color: #58a6ff; margin-right: 10px; font-weight: bold; }
         input {
             background: transparent;
             border: none;
@@ -38,20 +39,27 @@
             outline: none;
             flex-grow: 1;
         }
-        .output { margin-bottom: 5px; white-space: pre-wrap; }
+        .output { margin-bottom: 8px; white-space: pre-wrap; line-height: 1.4; }
         .command { color: #d2a8ff; }
         .error { color: #f85149; }
+        .header-text { color: #f2cc60; margin-bottom: 15px; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+        
+        /* Custom scrollbar para Matrix look */
+        #terminal::-webkit-scrollbar { width: 8px; }
+        #terminal::-webkit-scrollbar-track { background: #0d1117; }
+        #terminal::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
     </style>
 </head>
 <body>
 
 <div id="terminal">
-    <div class="output">Welcome to **Matrix_OS v2.0**...</div>
-    <div class="output">Type <span class="command">'help'</span> to see available commands.</div>
+    <div class="header-text">SEVEN33_OS v2.0.1 (AUTHORIZED ACCESS ONLY)</div>
+    <div class="output">Welcome, Architect **Seven**...</div>
+    <div class="output">Type <span class="command">'help'</span> to initialize command list.</div>
     <div id="history"></div>
     <div class="input-line">
-        <span class="prompt">loy@matrix:~$</span>
-        <input type="text" id="command-input" autofocus autocomplete="off">
+        <span class="prompt">seven@matrix:~$</span>
+        <input type="text" id="command-input" autofocus autocomplete="off" spellcheck="false">
     </div>
 </div>
 
@@ -61,26 +69,35 @@
     const terminal = document.getElementById('terminal');
 
     const commands = {
-        'help': "Available commands: \n- **about**: Who is Loy?\n- **chapters**: View all 30 tutorial chapters\n- **clear**: Clear the terminal\n- **date**: Show current Matrix time\n- **exit**: Return to Home",
-        'about': "Loy is a System Architect mastering the Matrix through Termux and Automation.",
-        'chapters': "Redirecting to Automation Hub in 2 seconds...",
+        'help': "Available commands: \n- **about**: Who is Architect Seven?\n- **chapters**: Access Automation Hub (30 Chapters)\n- **ls**: List directory content\n- **whoami**: Current session identity\n- **status**: Check system integrity\n- **date**: Current Matrix timestamp\n- **clear**: Purge terminal history\n- **exit**: Terminate session and return home",
+        'about': "Architect Seven is a lead system specialist optimizing the Matrix through Termux, Python, and advanced Bash automation.",
+        'chapters': "Redirecting to SEVEN33_AUTOMATION_HUB...",
         'date': () => new Date().toString(),
-        'clear': () => { history.innerHTML = ''; return ''; }
+        'clear': () => { history.innerHTML = ''; return ''; },
+        'ls': "index.html  automation-hub.html  terminal.html  seven33_core/  logs/  vault/  scripts/",
+        'whoami': "User: Seven (The Architect)\nRole: Root Administrator\nHost: seven33.site\nLocation: Inside the Matrix",
+        'status': "System: ONLINE\nEncryption: 256-bit AES\nFirewall: ACTIVE\nUptime: 100% - Matrix Stable.",
+        'socials': "Secure Nodes:\n- GitHub: github.com/seven33\n- Home: https://seven33.site",
+        'seven': "Seven is the number of perfection. Architect Seven is the master of code."
     };
 
     input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             const cmd = input.value.toLowerCase().trim();
+            
+            // Add input line to history
             const line = document.createElement('div');
-            line.innerHTML = `<span class="prompt">loy@matrix:~$</span> <span class="command">${cmd}</span>`;
+            line.innerHTML = `<span class="prompt">seven@matrix:~$</span> <span class="command">${cmd}</span>`;
             history.appendChild(line);
 
+            // Special logic for commands
             if (cmd === 'chapters') {
-                setTimeout(() => window.location.href = 'automation-hub.html', 2000);
+                setTimeout(() => window.location.href = 'automation-hub.html', 1500);
             } else if (cmd === 'exit') {
                 window.location.href = 'index.html';
             }
 
+            // Generate output
             const output = document.createElement('div');
             output.className = 'output';
 
@@ -88,14 +105,20 @@
                 const result = typeof commands[cmd] === 'function' ? commands[cmd]() : commands[cmd];
                 output.innerText = result;
             } else if (cmd !== '') {
-                output.innerHTML = `<span class="error">Command not found: ${cmd}</span>`;
+                output.innerHTML = `<span class="error">Unknown Command: ${cmd}. Type 'help' for options.</span>`;
             }
 
-            history.appendChild(output);
+            if (cmd !== 'clear') {
+                history.appendChild(output);
+            }
+            
             input.value = '';
             terminal.scrollTop = terminal.scrollHeight;
         }
     });
+
+    // Keep focus on input
+    document.addEventListener('click', () => input.focus());
 </script>
 
 </body>
