@@ -1,105 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9985396086570117" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 23: Automated Network Audits | Matrix Digital</title>
+    <title>Chapter 23: Automated Network Audits | Seven33 Academy</title>
+    
+    <meta name="description" content="Learn how to automate network security audits using Python and Nmap in a Termux environment. Step-by-step guide for System Architects.">
+    <meta name="keywords" content="Nmap Python, Network Audit Automation, Termux Security, Seven33, Gene Guardiana">
+
     <style>
+        :root {
+            --primary: #ff7b72;
+            --accent: #58a6ff;
+            --success: #7ee787;
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --text: #c9d1d9;
+            --border: #30363d;
+        }
+
         body {
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: var(--bg);
+            color: var(--text);
             font-family: 'Courier New', monospace;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
         }
         .content-wrap {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: #161b22;
+            background: var(--card-bg);
             padding: 40px;
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h1 { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 15px; font-size: 1.8rem; }
+        h2 { color: var(--accent); margin-top: 40px; border-left: 4px solid var(--accent); padding-left: 15px; }
+        
+        .architect-insight {
+            background: rgba(88, 166, 255, 0.05);
+            border: 1px dashed var(--accent);
+            padding: 20px;
+            margin: 25px 0;
             border-radius: 8px;
+            font-size: 0.9rem;
+            font-style: italic;
         }
-        h1 { color: #ff7b72; border-bottom: 2px solid #ff7b72; padding-bottom: 10px; }
-        h2 { color: #58a6ff; margin-top: 30px; }
-        code {
-            background: #0d1117;
-            color: #7ee787;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
+
+        code { background: #0d1117; color: var(--success); padding: 2px 6px; border-radius: 4px; }
         pre {
             background: #0d1117;
-            padding: 15px;
-            border-left: 4px solid #ff7b72;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
             overflow-x: auto;
             color: #d2a8ff;
+            font-size: 0.9rem;
         }
-        .btn-back {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #58a6ff;
-            text-decoration: none;
-        }
+        .btn-back { display: inline-block; margin-bottom: 25px; color: var(--accent); text-decoration: none; font-weight: bold; }
         .warning {
             background: rgba(248, 81, 73, 0.1);
             border: 1px solid #f85149;
-            padding: 15px;
-            border-radius: 5px;
-            color: #ff7b72;
-            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            color: var(--primary);
+            margin: 25px 0;
         }
+
+        /* Affiliate Section Styling */
+        .resource-box {
+            background: linear-gradient(145deg, #1c2128, #161b22);
+            border: 1px solid var(--success);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .affiliate-link {
+            display: inline-block;
+            background: var(--success);
+            color: #0d1117;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .affiliate-link:hover { transform: scale(1.05); background: #97eda1; }
     </style>
 </head>
 <body>
 
 <div class="content-wrap">
-    <a href="automation-hub.html" class="btn-back">← Back to Automation Hub</a>
-    
-    <h1>Chapter 23: Automated Network Audits</h1>
-    <p>As a System Architect, you must ensure that your network is secure. Manual scanning is slow. Today, we will automate the process of identifying open ports and active services using <strong>Nmap</strong> and <strong>Python</strong>.</p>
+    <a href="automation-hub.html" class="btn-back">← [ BACK_TO_HUB ]</a>
 
-    <div class="warning">
-        <strong>SECURITY NOTE:</strong> Only scan networks and devices that you own or have explicit permission to audit. Unauthorized scanning is unethical and often illegal.
+    <h1>Chapter 23: Automated Network Audits</h1>
+    
+    <p>In the life of a <strong>System Architect</strong>, security is not a one-time event—it is a continuous process. Manual scanning is inefficient and prone to human error. Today, we scale our security operations by automating port identification and service discovery using <strong>Nmap</strong> and <strong>Python</strong>.</p>
+
+    <div class="architect-insight">
+        "Efficiency is the difference between a coder and an Architect. Why scan manually when you can script the Matrix to watch its own back?" — Gene Guardiana
     </div>
 
-    <h2>1. Equipping the Matrix</h2>
-    <p>First, we need to install the necessary tools in our Debian environment:</p>
-    <pre>sudo apt update && sudo apt install nmap python3-nmap -y</pre>
+    <div class="warning">
+        <strong>CRITICAL SECURITY PROTOCOL:</strong> Unauthorized network scanning is a violation of privacy and law. Only execute these scripts on infrastructure you own or have legal authorization to test.
+    </div>
 
-    <h2>2. Building the Automated Scanner</h2>
-    <p>We will write a Python script that scans a specific IP range and logs the results into a file automatically. Create: <code>nano net_audit.py</code></p>
-    
+    <h2>1. Equipping the Environment</h2>
+    <p>Before we write our logic, we must ensure our environment has the necessary binaries. Run this in your Termux or Linux terminal:</p>
+    <pre>sudo apt update && sudo apt install nmap python3-pip -y
+pip install python-nmap</pre>
+
+    <h2>2. Crafting the Audit Logic</h2>
+    <p>This Python script doesn't just scan; it logs historical data. This allows you to track changes in your network posture over time. Create <code>net_audit.py</code>:</p>
+
     <pre>
 import nmap
 import datetime
 
-# Initialize Port Scanner
+# Initialize the Port Scanner engine
 nm = nmap.PortScanner()
-target = "127.0.0.1" # Change to your local IP
+target = "127.0.0.1"  # Target: Localhost or your Network Range
 
-print(f"--- SCANNING TARGET: {target} ---")
+print(f"--- INITIATING AUDIT: {target} ---")
 nm.scan(target, '21-443')
 
+# Automated Logging System
 with open("audit_log.txt", "a") as f:
-    f.write(f"\nAudit Date: {datetime.datetime.now()}\n")
+    f.write(f"\n--- Audit Session: {datetime.datetime.now()} ---\n")
     for host in nm.all_hosts():
-        f.write(f"Host: {host} ({nm[host].hostname()})\n")
-        f.write(f"State: {nm[host].state()}\n")
+        f.write(f"Host ID: {host} | Hostname: {nm[host].hostname()}\n")
+        f.write(f"Status: {nm[host].state().upper()}\n")
         for proto in nm[host].all_protocols():
-            lport = nm[host][proto].keys()
-            for port in lport:
-                f.write(f"Port: {port}\tState: {nm[host][proto][port]['state']}\n")
+            ports = nm[host][proto].keys()
+            for port in ports:
+                state = nm[host][proto][port]['state']
+                f.write(f"  [+] Port: {port}/{proto} | State: {state}\n")
 
-print(">>> Audit Complete. Results saved to audit_log.txt")
+print(">>> SUCCESS: Results archived in audit_log.txt")
     </pre>
 
-    <h2>3. Automating the Audit</h2>
-    <p>To make this truly automated, you can combine this with a Bash script or a Cron job to run every weekend and keep a history of your network's security posture.</p>
+    <h2>3. Architect's Workflow: Deployment</h2>
+    <p>To achieve true automation, move this script into a <strong>Cron Job</strong>. This allows the system to audit itself every midnight while you sleep, sending the logs to your repository automatically.</p>
 
-    <div style="margin-top: 40px; padding: 20px; border-top: 1px solid #30363d; text-align: center;">
-        <p style="color: #8b949e;">Next Chapter: Cron Job Mastery (Coming Soon)</p>
+    <div class="resource-box">
+        <h3 style="color: var(--success); margin-top: 0;">🛡️ ARCHITECT'S TOOLKIT</h3>
+        <p style="font-size: 0.9rem;">To run audits 24/7 without keeping your mobile device active, I recommend deploying these scripts on a high-uptime Cloud Server.</p>
+        <p style="font-size: 0.8rem; color: #8b949e;">(Recommended for Chapter 23 tasks)</p>
+        
+        <a href="YOUR_AFFILIATE_LINK_HERE" class="affiliate-link" target="_blank">
+            [ GET $200 FREE CLOUD CREDIT ]
+        </a>
+        <p style="font-size: 0.7rem; margin-top: 10px; color: #484f58;">*Support the Academy by using our partner links.</p>
+    </div>
+
+    <div style="margin-top: 60px; padding: 20px; border-top: 1px solid var(--border); text-align: center;">
+        <p style="color: #8b949e; font-size: 0.8rem;">
+            SEVEN33_ACADEMY | DOCUMENTATION_ID: CH23_NET_AUDIT<br>
+            Next: Chapter 24 - Cron Job Mastery
+        </p>
     </div>
 </div>
 
