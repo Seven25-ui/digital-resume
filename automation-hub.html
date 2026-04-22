@@ -1,64 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9985396086570117" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation Hub | Matrix Digital</title>
+    <title>Automation Hub | Matrix Digital - Seven33 Academy</title>
+    
+    <meta name="description" content="Master Linux automation, Python scripting, and Network security audits using Termux. Advanced technical documentation by Gene Guardiana.">
+    <meta name="keywords" content="Automation, Termux, Python Scripting, Bash, Network Audit, DevOps, Seven33">
+
     <style>
+        :root {
+            --primary: #7ee787;
+            --accent: #58a6ff;
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --text: #c9d1d9;
+            --border: #30363d;
+        }
+
         body {
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: var(--bg);
+            color: var(--text);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
         .header {
-            border-bottom: 1px solid #30363d;
+            border-bottom: 1px solid var(--border);
             padding-bottom: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
-        h1 { color: #7ee787; font-family: 'Courier New', monospace; }
+        h1 { color: var(--primary); font-family: 'Courier New', monospace; letter-spacing: 2px; }
+        
+        .intro-box {
+            background: rgba(88, 166, 255, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+            color: #8b949e;
+            text-align: justify;
+        }
+
         .hub-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
         .topic-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            padding: 20px;
-            border-radius: 8px;
-            transition: transform 0.2s, border-color 0.2s;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
             text-decoration: none;
-            display: block;
+            display: flex;
+            flex-direction: column;
             color: inherit;
         }
         .topic-card:hover {
             transform: translateY(-5px);
-            border-color: #7ee787;
+            border-color: var(--primary);
             background: #1c2128;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
         .tag {
+            align-self: flex-start;
             background: #238636;
             color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
+            padding: 3px 10px;
+            border-radius: 20px;
             font-size: 10px;
             text-transform: uppercase;
             font-weight: bold;
+            margin-bottom: 15px;
         }
         .btn-back {
             display: inline-block;
-            margin-top: 20px;
-            color: #58a6ff;
+            margin-top: 40px;
+            color: var(--accent);
             text-decoration: none;
+            font-weight: bold;
             font-size: 0.9rem;
         }
     </style>
@@ -68,46 +98,53 @@
 <div class="container">
     <div class="header">
         <h1>[ AUTOMATION_HUB ]</h1>
-        <p>Optimizing the Matrix through code and logic.</p>
+        <p style="color: var(--accent); font-weight: bold;">Scaling the Matrix with Logic & Code</p>
+    </div>
+
+    <div class="intro-box">
+        Automation is the cornerstone of modern system architecture. In the Seven33 ecosystem, we focus on 
+        leveraging <strong>mobile-first environments</strong> like Termux to execute high-level tasks. 
+        The documentation below provides a roadmap from basic shell scripting to advanced DevOps pipelines, 
+        ensuring that every Architect can optimize their workflow regardless of their hardware limitations.
     </div>
 
     <div class="hub-grid">
         <a href="chap21.html" class="topic-card">
-            <span class="tag">Active</span>
-            <h2 style="color: #58a6ff; margin: 10px 0;">Chapter 21: Bash Scripting Essentials</h2>
-            <p>Automate repetitive Linux tasks, directory backups, and system maintenance using pure Shell scripts.</p>
-            <span style="color: #7ee787; font-weight: bold;">Launch Chapter →</span>
+            <span class="tag">System Level</span>
+            <h2 style="color: var(--accent); margin: 0 0 10px 0; font-size: 1.2rem;">Ch 21: Bash Scripting Essentials</h2>
+            <p style="font-size: 0.9rem; color: #8b949e; flex-grow: 1;">Automate repetitive Linux tasks, directory backups, and system maintenance using pure Shell scripts.</p>
+            <span style="color: var(--primary); font-size: 0.85rem; margin-top: 15px;">Launch Documentation →</span>
         </a>
 
         <script>
-            // Data for Chapters 22-30
             const activeChapters = [
-                { ch: 22, title: "Python for System Admin", desc: "Using Python to monitor system logs and send automated alerts." },
-                { ch: 23, title: "Automated Network Audits", desc: "Scripting Nmap and network tools for security scanning." },
-                { ch: 24, title: "Cron Job Mastery", desc: "Scheduling advanced system tasks with precision timing." },
-                { ch: 25, title: "Database Automation", desc: "Automated SQL backups and optimization scripts." },
-                { ch: 26, title: "API Integration in Termux", desc: "Connecting scripts to external web services and bots." },
-                { ch: 27, title: "Log Rotation & Management", desc: "Automating the cleaning and archiving of system logs." },
-                { ch: 28, title: "Automated Security Patching", desc: "Creating scripts to keep the Matrix environment up-to-date." },
-                { ch: 29, title: "DevOps Pipeline Basics", desc: "Building a mini-CI/CD flow inside a mobile environment." },
-                { ch: 30, title: "The Architect's Conclusion", desc: "Final Roadmap: A summary of technical mastery and future scaling." }
+                { ch: 22, tag: "Programming", title: "Python for System Admin", desc: "Using Python to monitor system logs and send automated alerts." },
+                { ch: 23, tag: "Security", title: "Automated Network Audits", desc: "Scripting Nmap and network tools for security scanning." },
+                { ch: 24, tag: "Efficiency", title: "Cron Job Mastery", desc: "Scheduling advanced system tasks with precision timing." },
+                { ch: 25, tag: "Data Management", title: "Database Automation", desc: "Automated SQL backups and optimization scripts." },
+                { ch: 26, tag: "Integration", title: "API Integration in Termux", desc: "Connecting scripts to external web services and bots." },
+                { ch: 27, tag: "Maintenance", title: "Log Rotation & Management", desc: "Automating the cleaning and archiving of system logs." },
+                { ch: 28, tag: "Security", title: "Automated Security Patching", desc: "Creating scripts to keep the Matrix environment up-to-date." },
+                { ch: 29, tag: "DevOps", title: "DevOps Pipeline Basics", desc: "Building a mini-CI/CD flow inside a mobile environment." },
+                { ch: 30, tag: "Future", title: "The Architect's Conclusion", desc: "Final Roadmap: A summary of technical mastery and future scaling." }
             ];
 
-            // Render active chapters
             activeChapters.forEach(item => {
                 document.write(`
                     <a href="chap${item.ch}.html" class="topic-card">
-                        <span class="tag">Active</span>
-                        <h2 style="color: #58a6ff; margin: 10px 0;">Chapter ${item.ch}: ${item.title}</h2>
-                        <p style="font-size: 0.9rem; color: #8b949e;">${item.desc}</p>
-                        <span style="color: #7ee787; font-weight: bold;">Launch Chapter →</span>
+                        <span class="tag">${item.tag}</span>
+                        <h2 style="color: var(--accent); margin: 0 0 10px 0; font-size: 1.2rem;">Ch ${item.ch}: ${item.title}</h2>
+                        <p style="font-size: 0.9rem; color: #8b949e; flex-grow: 1;">${item.desc}</p>
+                        <span style="color: var(--primary); font-size: 0.85rem; margin-top: 15px;">Launch Documentation →</span>
                     </a>
                 `);
             });
         </script>
     </div>
 
-    <a href="index.html" class="btn-back">← Back to System Portfolio</a>
+    <div style="text-align: center;">
+        <a href="index.html" class="btn-back">← Return to Main Terminal</a>
+    </div>
 </div>
 
 </body>
