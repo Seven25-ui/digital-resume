@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9985396086570117" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gene Guardiana | System Architect & Full-Stack Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gene Guardiana | System Architect &amp; Full-Stack Developer</title>
 
-    <meta name="title" content="Seven33 Academy | System Architect & OS Development">
+<meta name="title" content="Seven33 Academy | System Architect & OS Development">
 <meta name="description" content="Official research and documentation of Gene Guardiana. Exploring Low-Level Engineering, Kernel Development, and Full-Stack solutions via Termux.">
 <meta name="keywords" content="Gene Guardiana, Seven33, Termux, OS Development, Kernel, System Architect, Low-Level Engineering, Android Coding">
 <meta name="author" content="Gene Guardiana">
@@ -15,283 +15,221 @@
 <meta property="og:url" content="https://seven33.site/">
 <meta property="og:title" content="Seven33 Academy | The Architect's Lab">
 <meta property="og:description" content="Documentation of 32-bit OS Architecture and Mobile Development environments.">
-<meta property="og:image" content="https://seven33.site/media/ss1.jpg"> <meta property="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://seven33.site/media/ss1.jpg">
+<meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://seven33.site/">
 <meta property="twitter:title" content="Seven33 Academy">
-<meta property="twitter:description" content="Building Operating Systems on Mobile Devices.">    
-   
- <style>
-        :root {
-            --primary: #E95420; /* Ubuntu Orange */
-            --bg: #0d1117;
-            --card-bg: #161b22;
-            --text: #c9d1d9;
-            --grid-color: rgba(0, 255, 0, 0.03);
-        }
+<meta property="twitter:description" content="Building Operating Systems on Mobile Devices.">
 
-        body {
-            background-color: var(--bg);
-            background-image: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 40px 40px;
-            color: var(--text);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            scroll-behavior: smooth;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1000px;
-            width: 90%;
-            padding: 40px 20px 80px 20px;
-        }
-
-        /* --- DASHBOARD TOP BAR --- */
-        .top-bar {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            background: rgba(22, 27, 34, 0.8);
-            padding: 15px 25px;
-            border-radius: 15px;
-            border: 1px solid #30363d;
-            backdrop-filter: blur(5px);
-        }
-
-        .profile-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .profile-img {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            object-fit: cover;
-            background: #30363d;
-        }
-
-        .profile-info strong {
-            color: #fff;
-            display: block;
-            font-size: 1rem;
-        }
-
-        .status-dot {
-            height: 8px;
-            width: 8px;
-            background-color: #238636;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 5px;
-        }
-
-        .live-widgets {
-            text-align: right;
-            font-family: 'Courier New', monospace;
-        }
-
-        #clock {
-            font-size: 1.3rem;
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        #weather {
-            font-size: 0.8rem;
-            color: var(--primary);
-            margin-top: 2px;
-        }
-
-        /* --- HERO SECTION --- */
-        header {
-            border-left: 5px solid var(--primary);
-            padding-left: 25px;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 8vw, 3.5rem);
-            color: #ffffff;
-            margin: 0;
-            letter-spacing: -1.5px;
-            text-transform: uppercase;
-        }
-
-        .subtitle {
-            color: var(--primary);
-            font-family: 'Courier New', monospace;
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-top: 5px;
-            font-weight: bold;
-        }
-
-        .about {
-            margin-bottom: 50px;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #8b949e;
-            max-width: 800px;
-        }
-
-        /* --- PROJECT GRID --- */
-        h2 {
-            color: #ffffff;
-            font-family: 'Courier New', monospace;
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 10px;
-            margin-top: 40px;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(233, 84, 32, 0.15);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: #ffffff;
-            font-size: 1.3rem;
-        }
-
-        .tag-container {
-            margin: 15px 0 25px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            font-size: 0.7rem;
-            background: #21262d;
-            color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 6px;
-            border: 1px solid #30363d;
-            font-weight: bold;
-        }
-
-        /* --- REPO BUTTONS --- */
-        .repo-link {
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 0.85rem;
-            font-weight: bold;
-            border: 1px solid var(--primary);
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-align: center;
-            transition: 0.3s;
-            background: transparent;
-        }
-
-        .repo-link:hover {
-            background: var(--primary);
-            box-shadow: 0 0 15px rgba(233, 84, 32, 0.4);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            margin-top: auto;
-            padding: 60px 40px;
-            background: #090c10;
-            width: 100%;
-            text-align: center;
-            border-top: 1px solid #30363d;
-        }
-
-        .contact-links a {
-            color: var(--text);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .contact-links a:hover {
-            color: var(--primary);
-        }
-
-        @media (max-width: 600px) {
-            .top-bar { flex-direction: column; gap: 15px; text-align: center; }
-            .live-widgets { text-align: center; }
-        }
-
-.menu-btn {
-  position: fixed; /* Magpabilin siya bisan mag-scroll */
-  top: 15px;       /* Distansya gikan sa taas */
-  right: 15px;     /* Distansya gikan sa tuo */
-  z-index: 2000;   /* Siguroha nga naa siya sa ibabaw sa tanan */
-  cursor: pointer;
-  background: rgba(13, 17, 23, 0.9); /* Dark background para makita sa header */
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #30363d; /* Subtle border para sa 'Hacker' vibe */
+<style>
+:root{
+    --primary:#E95420;
+    --bg:#0d1117;
+    --card-bg:#161b22;
+    --card-bg-2:#21262d;
+    --text:#c9d1d9;
+    --text-dim:#8b949e;
+    --text-strong:#ffffff;
+    --border:#30363d;
+    --grid-color:rgba(0,255,0,0.03);
+    --blue:#58a6ff;
+    --green:#7ee787;
+    --green-solid:#238636;
+    --green-solid-hover:#2ea043;
+    --purple:#d2a8ff;
+    --red:#ff7b72;
+    --shadow:0 10px 30px rgba(0,0,0,.5);
+}
+body.light{
+    --bg:#f6f8fa;
+    --card-bg:#ffffff;
+    --card-bg-2:#eef0f2;
+    --text:#24292f;
+    --text-dim:#57606a;
+    --text-strong:#0d1117;
+    --border:#d0d7de;
+    --grid-color:rgba(0,0,0,0.035);
+    --blue:#0969da;
+    --green:#1a7f37;
+    --green-solid:#1a7f37;
+    --green-solid-hover:#166a2f;
+    --purple:#8250df;
+    --red:#cf222e;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: #58a6ff;
-  margin: 5px 0;
-  transition: 0.4s;
+*{box-sizing:border-box}
+body{
+    background-color:var(--bg);
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size:40px 40px;
+    color:var(--text);
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    scroll-behavior:smooth;
+    min-height:100vh;
+    transition:background-color .3s ease, color .3s ease;
 }
-.side-nav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  right: 0;
-  background-color: #0d1117;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-  border-left: 1px solid #30363d;
-}
-.nav-links a {
-  padding: 15px 32px;
-  text-decoration: none;
-  font-size: 1.1rem;
-  color: #8b949e;
-  display: block;
-  font-family: 'Courier New', monospace;
-}
-.nav-links a:hover { color: #58a6ff; background: #161b22; }
 
-    </style>
+.container{max-width:1000px;width:90%;padding:40px 20px 80px}
+
+/* TOP BAR */
+.top-bar{
+    width:100%;display:flex;justify-content:space-between;align-items:center;
+    margin-bottom:40px;background:var(--card-bg);padding:15px 25px;
+    border-radius:15px;border:1px solid var(--border);backdrop-filter:blur(5px);
+}
+.profile-area{display:flex;align-items:center;gap:15px}
+.profile-img{width:55px;height:55px;border-radius:50%;border:2px solid var(--primary);object-fit:cover;background:var(--card-bg-2)}
+.profile-info strong{color:var(--text-strong);display:block;font-size:1rem}
+.status-dot{height:8px;width:8px;background-color:var(--green-solid);border-radius:50%;display:inline-block;margin-right:5px}
+.live-widgets{text-align:right;font-family:'Courier New', monospace}
+#clock{font-size:1.3rem;color:var(--text-strong);font-weight:bold}
+#weather{font-size:.8rem;color:var(--primary);margin-top:2px}
+
+/* THEME TOGGLE */
+.theme-toggle{
+    background:var(--card-bg-2);border:1px solid var(--border);color:var(--text);
+    width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:14px;
+    display:flex;align-items:center;justify-content:center;margin-left:12px;
+}
+.theme-toggle:hover{border-color:var(--primary);color:var(--primary)}
+
+/* HERO */
+header{border-left:5px solid var(--primary);padding-left:25px;margin-bottom:50px}
+h1{font-size:clamp(2rem,8vw,3.5rem);color:var(--text-strong);margin:0;letter-spacing:-1.5px;text-transform:uppercase}
+.subtitle{color:var(--primary);font-family:'Courier New', monospace;font-size:clamp(1rem,3vw,1.2rem);margin-top:5px;font-weight:bold}
+.about{margin-bottom:50px;font-size:1.1rem;line-height:1.8;color:var(--text-dim);max-width:800px}
+.about strong{color:var(--text)}
+
+h2{color:var(--text-strong);font-family:'Courier New', monospace;border-bottom:1px solid var(--border);padding-bottom:10px;margin-top:40px}
+
+/* PROJECT GRID */
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;margin-top:30px}
+.card{
+    background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:30px;
+    transition:all .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;justify-content:space-between;
+}
+.card:hover{transform:translateY(-8px);border-color:var(--primary);box-shadow:0 10px 30px rgba(233,84,32,.15)}
+.card.highlight{border-color:var(--primary)}
+.card h3{margin-top:0;color:var(--text-strong);font-size:1.3rem}
+.card p{color:var(--text-dim)}
+.tag-container{margin:15px 0 25px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.7rem;background:var(--card-bg-2);color:var(--primary);padding:4px 10px;border-radius:6px;border:1px solid var(--border);font-weight:bold}
+
+.repo-link{
+    text-decoration:none;color:var(--text-strong);font-size:.85rem;font-weight:bold;
+    border:1px solid var(--primary);padding:10px 20px;border-radius:6px;text-align:center;
+    transition:.3s;background:transparent;
+}
+.repo-link:hover{background:var(--primary);color:#fff;box-shadow:0 0 15px rgba(233,84,32,.4)}
+.repo-link.disabled{opacity:.6;cursor:not-allowed;border-color:var(--border);color:var(--text-dim)}
+.repo-link.disabled:hover{background:transparent;box-shadow:none}
+
+/* TERMINAL SECTION */
+.terminal-section{padding:40px 20px;background:var(--bg)}
+.terminal-window{max-width:800px;margin:0 auto;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--card-bg);box-shadow:var(--shadow)}
+.terminal-titlebar{background:var(--card-bg-2);padding:10px 15px;display:flex;align-items:center;border-bottom:1px solid var(--border)}
+.traffic-lights{display:flex;gap:6px}
+.traffic-lights span{width:12px;height:12px;border-radius:50%;display:block}
+.traffic-lights .red{background:#ff5f56}
+.traffic-lights .yellow{background:#ffbd2e}
+.traffic-lights .green{background:#27c93f}
+.terminal-path{margin-left:20px;color:var(--text-dim);font-size:.8rem;font-family:'Courier New', monospace}
+.terminal-body{padding:25px;text-align:left;font-family:'Courier New', monospace}
+.terminal-success{color:var(--green);margin-bottom:10px}
+.terminal-prompt{color:var(--text);margin-bottom:20px}
+.terminal-prompt .user{color:var(--blue)}
+.terminal-prompt .status{color:var(--text-dim)}
+.terminal-cta{display:flex;justify-content:center;align-items:center;padding:10px}
+.terminal-btn{
+    background:transparent;border:1px solid var(--green);color:var(--green);
+    padding:12px 25px;text-decoration:none;font-weight:bold;border-radius:4px;
+    transition:all .3s ease;text-transform:uppercase;letter-spacing:2px;
+}
+.terminal-btn:hover{background:var(--green-solid);color:#fff}
+.terminal-btn::after{content:'_';animation:cursorBlink 1s infinite;margin-left:5px}
+@keyframes cursorBlink{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
+
+/* GALLERY */
+.gallery-section{padding:60px 20px;border-top:1px solid var(--border);background:var(--bg)}
+.gallery-wrap{max-width:1200px;margin:0 auto}
+.gallery-title{color:var(--blue);font-family:'Courier New', monospace;margin-bottom:10px}
+.gallery-sub{color:var(--text-dim);font-family:'Courier New', monospace;font-size:.9rem;margin-bottom:30px}
+.gallery-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:768px){
+    .gallery-grid{grid-template-columns:repeat(3,1fr)}
+    .gallery-item{aspect-ratio:9/14;max-height:500px}
+}
+.gallery-item{border-radius:8px;overflow:hidden;border:1px solid var(--border);background:var(--card-bg);position:relative;transition:border-color .3s ease}
+.gallery-item img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(100%) brightness(.8);transition:all .5s cubic-bezier(.4,0,.2,1)}
+.gallery-item:hover{border-color:var(--blue)}
+.gallery-item:hover img{filter:grayscale(0%) brightness(1);transform:scale(1.05)}
+
+/* CTA SECTIONS */
+.cta-topics{padding:60px 20px;text-align:center;background:var(--bg);border-bottom:1px solid var(--border)}
+.cta-topics.gradient{background:linear-gradient(180deg,var(--bg) 0%,var(--card-bg) 100%)}
+.cta-title-red{color:var(--red);font-family:'Courier New', monospace;margin-bottom:20px}
+.cta-title-green{color:var(--green);font-family:'Courier New', monospace;margin-bottom:20px}
+.cta-text{max-width:600px;margin:0 auto 30px;line-height:1.6;color:var(--text-dim)}
+.cta-btn-outline-red{
+    display:inline-block;padding:15px 40px;background-color:transparent;color:var(--red);
+    border:2px solid var(--red);text-decoration:none;font-weight:bold;font-family:'Courier New', monospace;
+    border-radius:5px;transition:.3s;
+}
+.cta-btn-outline-red:hover{background-color:var(--red);color:var(--bg)}
+.cta-btn-solid-green{
+    display:inline-block;padding:15px 40px;background-color:var(--green-solid);color:#fff;
+    text-decoration:none;font-weight:bold;font-family:'Courier New', monospace;border-radius:5px;transition:.3s;
+}
+.cta-btn-solid-green:hover{background-color:var(--green-solid-hover)}
+
+.mini-card-row{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:1000px;margin:0 auto 40px}
+.mini-card{flex:1;min-width:250px;background:var(--card-bg);padding:20px;border-radius:8px;border:1px solid var(--border);text-align:left}
+.mini-card h3{color:var(--purple);font-size:1.2rem;margin-top:0}
+.mini-card p{font-size:.9rem;color:var(--text-dim)}
+.mini-card a{color:var(--blue);text-decoration:none;font-size:.9rem;font-weight:bold}
+
+/* FOOTER */
+footer{margin-top:auto;padding:60px 40px;background:var(--card-bg-2);width:100%;text-align:center;border-top:1px solid var(--border)}
+.contact-links a{color:var(--text);text-decoration:none;margin:0 15px;font-weight:bold;transition:color .3s}
+.contact-links a:hover{color:var(--primary)}
+.footer-deployed{font-size:.9rem;margin-top:25px;color:var(--text-dim);font-family:'Courier New', monospace}
+.footer-copy{font-size:.75rem;margin-top:10px;color:var(--text-dim)}
+
+@media(max-width:600px){
+    .top-bar{flex-direction:column;gap:15px;text-align:center}
+    .live-widgets{text-align:center}
+}
+
+/* NAV */
+.menu-btn{
+    position:fixed;top:15px;right:15px;z-index:2000;cursor:pointer;
+    background:var(--card-bg);padding:8px;border-radius:4px;border:1px solid var(--border);
+}
+.bar{width:25px;height:3px;background-color:var(--blue);margin:5px 0;transition:.4s}
+.side-nav{
+    height:100%;width:0;position:fixed;z-index:1000;top:0;right:0;
+    background-color:var(--bg);overflow-x:hidden;transition:.5s;padding-top:60px;
+    border-left:1px solid var(--border);
+}
+.side-nav.open{width:250px}
+.nav-links a{padding:15px 32px;text-decoration:none;font-size:1.1rem;color:var(--text-dim);display:block;font-family:'Courier New', monospace}
+.nav-links a:hover{color:var(--blue);background:var(--card-bg)}
+.nav-links a.highlight-red{color:var(--red);font-weight:bold}
+.nav-links a.highlight-green{color:var(--green);font-size:.85rem;padding-left:25px}
+.nav-divider{border:0.2px solid var(--border);margin:10px 20px}
+.closebtn{font-size:1.5rem}
+</style>
 </head>
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">
+<div class="menu-btn" onclick="toggleMenu()" role="button" tabindex="0" aria-label="Open menu" onkeydown="if(event.key==='Enter')toggleMenu()">
   <div class="bar"></div>
   <div class="bar"></div>
   <div class="bar"></div>
@@ -301,20 +239,18 @@
   <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
   <div class="nav-links">
     <a href="/">Home</a>
-    <a href="read-topic.html" style="color: #ff7b72; font-weight: bold;">[ READ TOPICS ]</a>
-    <hr style="border: 0.2px solid #30363d; margin: 10px 20px;">
+    <a href="read-topic.html" class="highlight-red">[ READ TOPICS ]</a>
+    <hr class="nav-divider">
 
     <a href="chap1.html">Ch 1: Termux Mastery</a>
     <a href="chap2.html">Ch 2: Dev Workflow</a>
     <a href="chap3.html">Ch 3: OS Development</a>
-    <a href="chap4.html">Ch 4: Kernel & Binary</a>
+    <a href="chap4.html">Ch 4: Kernel &amp; Binary</a>
     <a href="chap5.html">Ch 5: Ethical Security</a>
 
-    <a href="read-topic.html" style="color: #7ee787; font-size: 0.85rem; padding-left: 25px;">
-      <i>[+] See More Topics...</i>
-    </a>
+    <a href="read-topic.html" class="highlight-green"><i>[+] See More Topics...</i></a>
 
-    <hr style="border: 0.2px solid #30363d; margin: 10px 20px;">
+    <hr class="nav-divider">
     <a href="about.html">About the Architect</a>
     <a href="privacy-policy.html">Privacy Policy</a>
   </div>
@@ -326,14 +262,15 @@
             <img src="media/profile.jpg" alt="Gene Guardiana" class="profile-img">
             <div class="profile-info">
                 <strong>GENE GUARDIANA</strong>
-                <span style="font-size: 0.75rem; color: #8b949e;">
-                    <span class="status-dot"></span>Available for Hire
-                </span>
+                <span style="font-size:.75rem;color:var(--text-dim)"><span class="status-dot"></span>Available for Hire</span>
             </div>
         </div>
-        <div class="live-widgets">
-            <div id="clock">00:00:00</div>
-            <div id="weather">Loading Weather...</div>
+        <div style="display:flex;align-items:center">
+            <div class="live-widgets">
+                <div id="clock">00:00:00</div>
+                <div id="weather">Loading Weather...</div>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle light/dark mode">🌙</button>
         </div>
     </div>
 
@@ -346,126 +283,72 @@
         <p>I am a software engineer focused on building robust systems from the ground up. Whether it's crafting a <strong>32-bit OS Kernel</strong> in Assembly or deploying scalable <strong>Flask applications</strong> with Cloud-native integrations, I leverage the power of <strong>Termux</strong> to develop high-performance solutions directly from a mobile environment.</p>
     </section>
 
-<section id="terminal-link" style="padding: 40px 20px; background: #0d1117;">
-    <div style="max-width: 800px; margin: 0 auto; border: 1px solid #30363d; border-radius: 8px; overflow: hidden; background: #161b22; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-
-        <div style="background: #21262d; padding: 10px 15px; display: flex; align-items: center; border-bottom: 1px solid #30363d;">
-            <div style="display: flex; gap: 6px;">
-                <div style="width: 12px; height: 12px; background: #ff5f56; border-radius: 50%;"></div>
-                <div style="width: 12px; height: 12px; background: #ffbd2e; border-radius: 50%;"></div>
-                <div style="width: 12px; height: 12px; background: #27c93f; border-radius: 50%;"></div>
+    <section id="terminal-link" class="terminal-section">
+        <div class="terminal-window">
+            <div class="terminal-titlebar">
+                <div class="traffic-lights"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="terminal-path">seven@matrix: ~/seven33-core</div>
             </div>
-            <div style="margin-left: 20px; color: #8b949e; font-size: 0.8rem; font-family: 'Courier New', monospace;">seven@matrix: ~/seven33-core</div>
-        </div>
-
-        <div style="padding: 25px; text-align: left; font-family: 'Courier New', monospace;">
-            <div style="color: #7ee787; margin-bottom: 10px;">> SEVEN33_OS_INITIALIZED: SUCCESS</div>
-            <div style="color: #c9d1d9; margin-bottom: 20px;">
-                <span style="color: #58a6ff;">seven@matrix:~$</span> boot --interactive
-                <br>
-                <span style="color: #8b949e;">Status: Awaiting Architect input...</span>
-            </div>
-
-            <div style="display: flex; justify-content: center; align-items: center; padding: 10px;">
-                <a href="terminal.html" style="
-                    background: transparent;
-                    border: 1px solid #7ee787;
-                    color: #7ee787;
-                    padding: 12px 25px;
-                    text-decoration: none;
-                    font-weight: bold;
-                    border-radius: 4px;
-                    transition: all 0.3s ease;
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
-                " onmouseover="this.style.background='#238636'; this.style.color='#fff';"
-                   onmouseout="this.style.background='transparent'; this.style.color='#7ee787';">
-                    Launch Seven33 Terminal
-                </a>
+            <div class="terminal-body">
+                <div class="terminal-success">&gt; SEVEN33_OS_INITIALIZED: SUCCESS</div>
+                <div class="terminal-prompt">
+                    <span class="user">seven@matrix:~$</span> boot --interactive
+                    <br><span class="status">Status: Awaiting Architect input...</span>
+                </div>
+                <div class="terminal-cta">
+                    <a href="terminal.html" class="terminal-btn">Launch Seven33 Terminal</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-<style>
-    /* Global Cursor Blinking */
-    #terminal-link a::after {
-        content: '_';
-        animation: cursorBlink 1s infinite;
-        margin-left: 5px;
-    }
-    @keyframes cursorBlink {
-        0% { opacity: 0; }
-        50% { opacity: 1; }
-        100% { opacity: 0; }
-    }
-</style>
+    </section>
 
     <section id="projects">
         <h2>// PROJECT_REPOSITORY_V1.0</h2>
         <div class="project-grid">
-            
+
             <div class="card">
-    <div>
-        <h3>SE7EN Cinema — Movie Discovery</h3>
-        <p>Movie discovery app with live "Where to Watch" data via TMDB API. Custom cinema marquee UI, fully responsive, zero dependencies.</p>
-        <div class="tag-container">
-            <span class="tag">TMDB_API</span><span class="tag">VANILLA_JS</span><span class="tag">GITHUB_PAGES</span>
-        </div>
-    </div>
-    <a href="https://seven25-ui.github.io/movie_discovery/" target="_blank" class="repo-link">VIEW SOURCE</a>
-</div>
+                <div>
+                    <h3>SE7EN Cinema — Movie Discovery</h3>
+                    <p>Movie discovery app with live "Where to Watch" data via TMDB API. Custom cinema marquee UI, fully responsive, zero dependencies.</p>
+                    <div class="tag-container"><span class="tag">TMDB_API</span><span class="tag">VANILLA_JS</span><span class="tag">GITHUB_PAGES</span></div>
+                </div>
+                <a href="https://seven25-ui.github.io/movie_discovery/" target="_blank" class="repo-link">VIEW SOURCE</a>
+            </div>
 
             <div class="card">
                 <div>
                     <h3>Social Engine</h3>
                     <p>Full-stack Flask application featuring private messaging and Cloudinary media management.</p>
-                    <div class="tag-container">
-                        <span class="tag">FLASK</span><span class="tag">POSTGRES</span><span class="tag">NEON_DB</span>
-                    </div>
+                    <div class="tag-container"><span class="tag">FLASK</span><span class="tag">POSTGRES</span><span class="tag">NEON_DB</span></div>
                 </div>
                 <a href="https://flask-blog-v2.onrender.com/" target="_blank" class="repo-link">VIEW SOURCE</a>
             </div>
 
-           <div class="card">
-    <div>
-        <h3>AI Customer Support Bot</h3>
-        <p>Telegram chatbot powered by Claude AI, built to auto-answer customer FAQs for any small business via a single swappable config file.</p>
-        <div class="tag-container">
-            <span class="tag">PYTHON</span><span class="tag">TELEGRAM_API</span><span class="tag">CLAUDE_AI</span>
-        </div>
-    </div>
-    <a href="https://github.com/Seven25-ui/ai-customer-support-bot" target="_blank" class="repo-link">VIEW SOURCE</a>
-</div>
+            <div class="card">
+                <div>
+                    <h3>AI Customer Support Bot</h3>
+                    <p>Telegram chatbot powered by Claude AI, built to auto-answer customer FAQs for any small business via a single swappable config file.</p>
+                    <div class="tag-container"><span class="tag">PYTHON</span><span class="tag">TELEGRAM_API</span><span class="tag">CLAUDE_AI</span></div>
+                </div>
+                <a href="https://github.com/Seven25-ui/ai-customer-support-bot" target="_blank" class="repo-link">VIEW SOURCE</a>
+            </div>
 
-<div class="card">
-    <div>
-        <h3>Se7en — Voice Assistant</h3>
-        <p>A browser-based AI voice assistant built with pure HTML, CSS, and JavaScript. Supports speech recognition, text-to-speech, media search, smart web shortcuts, and secure local file playback without requiring a backend.</p>
+            <div class="card">
+                <div>
+                    <h3>Se7en — Voice Assistant</h3>
+                    <p>A browser-based AI voice assistant built with pure HTML, CSS, and JavaScript. Supports speech recognition, text-to-speech, media search, smart web shortcuts, and secure local file playback without requiring a backend.</p>
+                    <div class="tag-container">
+                        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JAVASCRIPT</span><span class="tag">WEB_SPEECH_API</span><span class="tag">TTS</span>
+                    </div>
+                </div>
+                <a href="https://seven25-ui.github.io/se7en_assistant/" target="_blank" class="repo-link">VIEW SOURCE</a>
+            </div>
 
-        <div class="tag-container">
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS3</span>
-            <span class="tag">JAVASCRIPT</span>
-            <span class="tag">WEB_SPEECH_API</span>
-            <span class="tag">TTS</span>
-        </div>
-    </div>
-
-    <a href="https://seven25-ui.github.io/se7en_assistant/"
-       target="_blank"
-       class="repo-link">
-       VIEW SOURCE
-    </a>
-</div>
-      
             <div class="card">
                 <div>
                     <h3>YouTube Architecture</h3>
                     <p>High-fidelity UI clone exploring dynamic grid systems and responsive video containers.</p>
-                    <div class="tag-container">
-                        <span class="tag">CSS_GRID</span><span class="tag">JS</span><span class="tag">RESPONSIVE</span>
-                    </div>
+                    <div class="tag-container"><span class="tag">CSS_GRID</span><span class="tag">JS</span><span class="tag">RESPONSIVE</span></div>
                 </div>
                 <a href="https://seven25-ui.github.io/Yt7_clone/" target="_blank" class="repo-link">VIEW SOURCE</a>
             </div>
@@ -474,44 +357,32 @@
                 <div>
                     <h3>Weather Engine</h3>
                     <p>Live meteorological tracker fetching global data via OpenWeather JSON API.</p>
-                    <div class="tag-container">
-                        <span class="tag">API</span><span class="tag">JSON</span><span class="tag">JS</span>
-                    </div>
+                    <div class="tag-container"><span class="tag">API</span><span class="tag">JSON</span><span class="tag">JS</span></div>
                 </div>
                 <a href="https://seven25-ui.github.io/Weather-app/" target="_blank" class="repo-link">VIEW SOURCE</a>
             </div>
 
-            <div class="card" style="border-style: solid; border-color: var(--primary);">
-    <div>
-        <h3>OS Kernel Lab</h3>
-        <p>Building 32-bit architecture: Bootloaders, GDT, and memory paging from scratch.</p>
-        <div class="tag-container">
-            <span class="tag">x86_ASSEMBLY</span><span class="tag">BARE_METAL</span><span class="tag">KERNEL</span>
-        </div>
-    </div>
-    <span class="repo-link" style="opacity: 0.6; cursor: not-allowed; border-color: #484f58; color: #8b949e;">
-        [ STATUS: UNDER_DEVELOPMENT ]
-    </span>
-</div>
+            <div class="card highlight">
+                <div>
+                    <h3>OS Kernel Lab</h3>
+                    <p>Building 32-bit architecture: Bootloaders, GDT, and memory paging from scratch.</p>
+                    <div class="tag-container"><span class="tag">x86_ASSEMBLY</span><span class="tag">BARE_METAL</span><span class="tag">KERNEL</span></div>
+                </div>
+                <span class="repo-link disabled">[ STATUS: UNDER_DEVELOPMENT ]</span>
+            </div>
 
         </div>
     </section>
 </div>
 
-<section id="gallery" style="padding: 60px 20px; border-top: 1px solid #30363d; background: #0d1117;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <h2 style="color: #58a6ff; font-family: 'Courier New', monospace; margin-bottom: 10px;">
-            // VISUAL_ARCHIVES_V1.0
-        </h2>
-        <p style="color: #8b949e; font-family: 'Courier New', monospace; font-size: 0.9rem; margin-bottom: 30px;">
-            > System snapshots from the mobile-first kernel development environment.
-        </p>
-
+<section id="gallery" class="gallery-section">
+    <div class="gallery-wrap">
+        <h2 class="gallery-title">// VISUAL_ARCHIVES_V1.0</h2>
+        <p class="gallery-sub">&gt; System snapshots from the mobile-first kernel development environment.</p>
         <div class="gallery-grid">
             <div class="gallery-item"><img src="media/ss1.jpg" alt="Archive_01"></div>
             <div class="gallery-item"><img src="media/ss2.jpg" alt="Archive_02"></div>
             <div class="gallery-item"><img src="media/ss3.jpg" alt="Archive_03"></div>
-            
             <div class="gallery-item"><img src="media/ss4.jpg" alt="Archive_04"></div>
             <div class="gallery-item"><img src="media/ss5.jpg" alt="Archive_05"></div>
             <div class="gallery-item"><img src="media/ss6.jpg" alt="Archive_06"></div>
@@ -519,176 +390,95 @@
     </div>
 </section>
 
-<style>
-    /* --- Base Grid (Mobile View) --- */
-    .gallery-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important; 
-        gap: 20px;
-    }
-
-    /* --- Desktop/Tablet View (Updated Trigger) --- */
-    @media (min-width: 768px) {
-        .gallery-grid {
-            /* Gigamitan nato og repeat(3, 1fr) para mapugos og horizontal */
-            grid-template-columns: repeat(3, 1fr) !important; 
-            gap: 20px;
-        }
-
-        .gallery-item {
-            aspect-ratio: 9 / 14;
-            max-height: 500px;
-        }
-    }
-
-    /* --- Gallery Item Styling (Pabilin gihapon ni) --- */
-    .gallery-item {
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #30363d;
-        background: #161b22;
-        position: relative;
-        transition: border-color 0.3s ease;
-    }
-
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-        filter: grayscale(100%) brightness(0.8);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .gallery-item:hover {
-        border-color: #58a6ff;
-    }
-
-    .gallery-item:hover img {
-        filter: grayscale(0%) brightness(1);
-        transform: scale(1.05);
-    }
-</style>
-
-<section id="cta-topics" style="padding: 60px 20px; text-align: center; background: linear-gradient(180deg, #0d1117 0%, #161b22 100%); border-bottom: 1px solid #30363d;">
-    <h2 style="color: #58a6ff; font-family: 'Courier New', monospace; margin-bottom: 20px;">>_ CURIOUS_HOW_IT_WORKS?</h2>
-    <p style="max-width: 600px; margin: 0 auto 30px; line-height: 1.6;">
-        Interested in low-level engineering? From setting up a mobile environment to crafting a 32-bit OS Kernel, 
-        I've documented the entire process for the next generation of architects.
-    </p>
-    
-    <a href="read-topic.html" style="
-    display: inline-block;
-    padding: 15px 40px;
-    background-color: transparent;
-    color: #ff7b72;
-    border: 2px solid #ff7b72;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Courier New', monospace;
-    border-radius: 5px;
-    transition: 0.3s;
-" onmouseover="this.style.backgroundColor='#ff7b72'; this.style.color='#0d1117';"
-   onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ff7b72';">
-    [ EXPLORE FULL TUTORIALS ]
-</a>
+<section id="cta-topics" class="cta-topics">
+    <h2 class="cta-title-red">&gt;_ CURIOUS_HOW_IT_WORKS?</h2>
+    <p class="cta-text">Interested in low-level engineering? From setting up a mobile environment to crafting a 32-bit OS Kernel, I've documented the entire process for the next generation of architects.</p>
+    <a href="read-topic.html" class="cta-btn-outline-red">[ EXPLORE FULL TUTORIALS ]</a>
 </section>
 
-<section id="automation-topics" style="padding: 60px 20px; text-align: center; background: #0d1117; border-bottom: 1px solid #30363d;">
-    <h2 style="color: #7ee787; font-family: 'Courier New', monospace; margin-bottom: 20px;">>_ MASTER_THE_AUTOMATION</h2>
-    <p style="max-width: 600px; margin: 0 auto 30px; line-height: 1.6; color: #8b949e;">
-        Stop repeating yourself. Learn how to script the Matrix using Bash, Python, and Cron jobs. 
-        From automated backups to network security audits, optimize your workflow like a true Architect.
-    </p>
+<section id="automation-topics" class="cta-topics">
+    <h2 class="cta-title-green">&gt;_ MASTER_THE_AUTOMATION</h2>
+    <p class="cta-text">Stop repeating yourself. Learn how to script the Matrix using Bash, Python, and Cron jobs. From automated backups to network security audits, optimize your workflow like a true Architect.</p>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: 0 auto 40px;">
-
-        <div style="flex: 1; min-width: 250px; background: #161b22; padding: 20px; border-radius: 8px; border: 1px solid #30363d; text-align: left;">
-            <h3 style="color: #d2a8ff; font-size: 1.2rem;">Shell Scripting</h3>
-            <p style="font-size: 0.9rem; color: #8b949e;">Automate Linux commands, directory backups, and system maintenance efficiently.</p>
-            <a href="chap21.html" style="color: #58a6ff; text-decoration: none; font-size: 0.9rem; font-weight: bold;">View Chapter 21 →</a>
+    <div class="mini-card-row">
+        <div class="mini-card">
+            <h3>Shell Scripting</h3>
+            <p>Automate Linux commands, directory backups, and system maintenance efficiently.</p>
+            <a href="chap21.html">View Chapter 21 →</a>
         </div>
-
-        <div style="flex: 1; min-width: 250px; background: #161b22; padding: 20px; border-radius: 8px; border: 1px solid #30363d; text-align: left;">
-            <h3 style="color: #d2a8ff; font-size: 1.2rem;">Task Scheduling</h3>
-            <p style="font-size: 0.9rem; color: #8b949e;">Master Crontab and Python to run scripts at specific intervals without manual input.</p>
-            <a href="chap24.html" style="color: #58a6ff; text-decoration: none; font-size: 0.9rem; font-weight: bold;">View Chapter 24 →</a>
+        <div class="mini-card">
+            <h3>Task Scheduling</h3>
+            <p>Master Crontab and Python to run scripts at specific intervals without manual input.</p>
+            <a href="chap24.html">View Chapter 24 →</a>
         </div>
-
-        <div style="flex: 1; min-width: 250px; background: #161b22; padding: 20px; border-radius: 8px; border: 1px solid #30363d; text-align: left;">
-            <h3 style="color: #d2a8ff; font-size: 1.2rem;">Network Audits</h3>
-            <p style="font-size: 0.9rem; color: #8b949e;">Automate security scanning using Nmap and Python for a more secure Matrix.</p>
-            <a href="chap23.html" style="color: #58a6ff; text-decoration: none; font-size: 0.9rem; font-weight: bold;">View Chapter 23 →</a>
+        <div class="mini-card">
+            <h3>Network Audits</h3>
+            <p>Automate security scanning using Nmap and Python for a more secure Matrix.</p>
+            <a href="chap23.html">View Chapter 23 →</a>
         </div>
-
     </div>
 
-    <a href="automation-hub.html" style="
-        display: inline-block;
-        padding: 15px 40px;
-        background-color: #238636;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        font-family: 'Courier New', monospace;
-        border-radius: 5px;
-        transition: 0.3s;
-    " onmouseover="this.style.backgroundColor='#2ea043';" 
-       onmouseout="this.style.backgroundColor='#238636';">
-        [ ENTER THE AUTOMATION_HUB ]
-    </a>
+    <a href="automation-hub.html" class="cta-btn-solid-green">[ ENTER THE AUTOMATION_HUB ]</a>
 </section>
 
 <footer>
     <div class="contact-links">
         <a href="https://github.com/Seven25-ui" target="_blank">GITHUB</a>
-        
         <a href="mailto:guardianagene6@gmail.com">EMAIL</a>
-        
-        <p style="font-size: 0.9rem; margin-top: 25px; color: #8b949e; font-family: 'Courier New', monospace;">
-            // SITE_DEPLOYED: <span style="color: var(--primary);">seven33.site</span>
-        </p>
-        
-        <p style="font-size: 0.75rem; margin-top: 10px; color: #484f58;">
-            &copy; 2026 Gene Guardiana | Engineered via Termux
-        </p>
+        <p class="footer-deployed">// SITE_DEPLOYED: <span style="color:var(--primary)">seven33.site</span></p>
+        <p class="footer-copy">&copy; 2026 Gene Guardiana | Engineered via Termux</p>
     </div>
 </footer>
 
 <script>
-    // 1. CLOCK LOGIC
-    function updateClock() {
-        const now = new Date();
-        document.getElementById('clock').innerText = now.toLocaleTimeString([], { hour12: false });
+"use strict";
+
+// 1. CLOCK
+function updateClock() {
+    document.getElementById('clock').innerText = new Date().toLocaleTimeString([], { hour12: false });
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// 2. WEATHER
+// Note: this key is visible to anyone viewing page source, since it's used
+// directly from client-side JS. It's a low-risk free-tier OpenWeather key,
+// but for full safety this call should eventually go through a backend
+// proxy so the key never reaches the browser.
+const API_KEY = '8a252f61c3bb5b844bf4473729978c30';
+const CITY = 'Cebu City';
+
+async function fetchWeather() {
+    try {
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=metric&appid=${API_KEY}`);
+        const data = await res.json();
+        const temp = Math.round(data.main.temp);
+        document.getElementById('weather').innerText = `${CITY.toUpperCase()}: ${temp}°C | ${data.weather[0].main}`;
+    } catch (e) {
+        document.getElementById('weather').innerText = "CEBU: 30°C | CLEAR";
     }
-    setInterval(updateClock, 1000);
-    updateClock();
+}
+fetchWeather();
 
-    // 2. WEATHER LOGIC (OpenWeatherMap API)
-    const API_KEY = '8a252f61c3bb5b844bf4473729978c30'; // Replace with your real API key
-    const CITY = 'Cebu City';
-
-    async function fetchWeather() {
-        try {
-            const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=metric&appid=${API_KEY}`);
-            const data = await res.json();
-            const temp = Math.round(data.main.temp);
-            document.getElementById('weather').innerText = `${CITY.toUpperCase()}: ${temp}°C | ${data.weather[0].main}`;
-        } catch (e) {
-            document.getElementById('weather').innerText = "CEBU: 30°C | CLEAR";
-        }
-    }
-    fetchWeather();
-
+// 3. SIDE MENU (class-based toggle instead of fragile inline width string check)
 function toggleMenu() {
-  const menu = document.getElementById("sideMenu");
-  if (menu.style.width === "250px") {
-    menu.style.width = "0";
-  } else {
-    menu.style.width = "250px";
-  }
+    document.getElementById("sideMenu").classList.toggle("open");
 }
 
+// 4. THEME TOGGLE
+function toggleTheme() {
+    document.body.classList.toggle("light");
+    const light = document.body.classList.contains("light");
+    localStorage.setItem("seven33-theme", light ? "light" : "dark");
+    document.getElementById("themeBtn").textContent = light ? "☀️" : "🌙";
+}
+function loadTheme() {
+    if (localStorage.getItem("seven33-theme") === "light") {
+        document.body.classList.add("light");
+        document.getElementById("themeBtn").textContent = "☀️";
+    }
+}
+loadTheme();
 </script>
 
 </body>
