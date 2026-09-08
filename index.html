@@ -40,24 +40,6 @@
     --red:#ff7b72;
     --shadow:0 10px 30px rgba(0,0,0,.5);
 }
-body.light{
-    --bg:#f6f8fa;
-    --card-bg:#ffffff;
-    --card-bg-2:#eef0f2;
-    --text:#24292f;
-    --text-dim:#57606a;
-    --text-strong:#0d1117;
-    --border:#d0d7de;
-    --grid-color:rgba(0,0,0,0.035);
-    --blue:#0969da;
-    --green:#1a7f37;
-    --green-solid:#1a7f37;
-    --green-solid-hover:#166a2f;
-    --purple:#8250df;
-    --red:#cf222e;
-    --shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
 *{box-sizing:border-box}
 body{
     background-color:var(--bg);
@@ -87,22 +69,17 @@ body{
 .profile-area{display:flex;align-items:center;gap:15px}
 .profile-img{width:55px;height:55px;border-radius:50%;border:2px solid var(--primary);object-fit:cover;background:var(--card-bg-2)}
 .profile-info strong{color:var(--text-strong);display:block;font-size:1rem}
-.status-dot{height:8px;width:8px;background-color:var(--green-solid);border-radius:50%;display:inline-block;margin-right:5px}
+.status-dot{height:8px;width:8px;background-color:var(--green-solid);border-radius:50%;display:inline-block;margin-right:5px;box-shadow:0 0 8px var(--green-solid);animation:statusPulse 1.6s infinite}
+@keyframes statusPulse{0%,100%{opacity:1}50%{opacity:.4}}
 .live-widgets{text-align:right;font-family:'Courier New', monospace}
 #clock{font-size:1.3rem;color:var(--text-strong);font-weight:bold}
 #weather{font-size:.8rem;color:var(--primary);margin-top:2px}
 
-/* THEME TOGGLE */
-.theme-toggle{
-    background:var(--card-bg-2);border:1px solid var(--border);color:var(--text);
-    width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:14px;
-    display:flex;align-items:center;justify-content:center;margin-left:12px;
-}
-.theme-toggle:hover{border-color:var(--primary);color:var(--primary)}
-
 /* HERO */
 header{border-left:5px solid var(--primary);padding-left:25px;margin-bottom:50px}
-h1{font-size:clamp(2rem,8vw,3.5rem);color:var(--text-strong);margin:0;letter-spacing:-1.5px;text-transform:uppercase}
+.whoami{font-family:'Courier New', monospace;font-size:.85rem;color:var(--text-dim);margin-bottom:8px}
+.whoami .user{color:var(--blue)}
+h1{font-size:clamp(1.8rem,5vw,2.4rem);color:var(--text-strong);margin:0;letter-spacing:-.5px;text-transform:uppercase}
 .subtitle{color:var(--primary);font-family:'Courier New', monospace;font-size:clamp(1rem,3vw,1.2rem);margin-top:5px;font-weight:bold}
 .about{margin-bottom:50px;font-size:1.1rem;line-height:1.8;color:var(--text-dim);max-width:800px}
 .about strong{color:var(--text)}
@@ -200,7 +177,39 @@ footer{margin-top:auto;padding:60px 40px;background:var(--card-bg-2);width:100%;
 .contact-links a{color:var(--text);text-decoration:none;margin:0 15px;font-weight:bold;transition:color .3s}
 .contact-links a:hover{color:var(--primary)}
 .footer-deployed{font-size:.9rem;margin-top:25px;color:var(--text-dim);font-family:'Courier New', monospace}
+.footer-deployed .highlight{color:var(--primary)}
 .footer-copy{font-size:.75rem;margin-top:10px;color:var(--text-dim)}
+
+/* BOOT INTRO */
+.boot-intro{
+    position:fixed;inset:0;background:#000;z-index:99999;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    overflow:hidden;transition:opacity .6s ease, visibility .6s ease;
+}
+.boot-intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+#matrixCanvas{position:absolute;inset:0;width:100%;height:100%;opacity:.45}
+.boot-text{
+    position:relative;z-index:1;font-family:'Courier New', monospace;color:var(--green);
+    font-size:clamp(.8rem,2.2vw,1.05rem);text-align:left;white-space:pre-wrap;
+    min-height:150px;max-width:90vw;text-shadow:0 0 8px rgba(126,231,135,.55);
+}
+.boot-text .glitch{display:inline-block;animation:glitchFlicker .15s infinite}
+@keyframes glitchFlicker{
+    0%{text-shadow:2px 0 var(--red),-2px 0 var(--blue)}
+    50%{text-shadow:-2px 0 var(--red),2px 0 var(--blue)}
+    100%{text-shadow:2px 0 var(--red),-2px 0 var(--blue)}
+}
+.boot-skip{
+    position:relative;z-index:1;margin-top:26px;font-family:'Courier New', monospace;
+    font-size:.72rem;color:var(--text-dim);opacity:.7;animation:blinkSkip 1.6s infinite;
+    cursor:pointer;
+}
+@keyframes blinkSkip{0%,100%{opacity:.7}50%{opacity:.2}}
+
+/* FOCUS STATES */
+a:focus-visible, button:focus-visible, .repo-link:focus-visible{
+    outline:2px solid var(--blue);outline-offset:2px;
+}
 
 @media(max-width:600px){
     .top-bar{flex-direction:column;gap:15px;text-align:center}
@@ -228,6 +237,12 @@ footer{margin-top:auto;padding:60px 40px;background:var(--card-bg-2);width:100%;
 </style>
 </head>
 <body>
+
+<div class="boot-intro" id="bootIntro">
+    <canvas id="matrixCanvas"></canvas>
+    <div class="boot-text" id="bootText"></div>
+    <div class="boot-skip" id="bootSkip">[ press any key to continue ]</div>
+</div>
 
 <div class="menu-btn" onclick="toggleMenu()" role="button" tabindex="0" aria-label="Open menu" onkeydown="if(event.key==='Enter')toggleMenu()">
   <div class="bar"></div>
@@ -265,16 +280,14 @@ footer{margin-top:auto;padding:60px 40px;background:var(--card-bg-2);width:100%;
                 <span style="font-size:.75rem;color:var(--text-dim)"><span class="status-dot"></span>Available for Hire</span>
             </div>
         </div>
-        <div style="display:flex;align-items:center">
-            <div class="live-widgets">
-                <div id="clock">00:00:00</div>
-                <div id="weather">Loading Weather...</div>
-            </div>
-            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle light/dark mode">🌙</button>
+        <div class="live-widgets">
+            <div id="clock">00:00:00</div>
+            <div id="weather">Loading Weather...</div>
         </div>
     </div>
 
     <header>
+        <div class="whoami"><span class="user">root@seven33</span>:~$ whoami</div>
         <h1>GENE GUARDIANA</h1>
         <div class="subtitle">System Architect | Full-Stack Dev [Termux Specialized]</div>
     </header>
@@ -425,7 +438,7 @@ footer{margin-top:auto;padding:60px 40px;background:var(--card-bg-2);width:100%;
     <div class="contact-links">
         <a href="https://github.com/Seven25-ui" target="_blank">GITHUB</a>
         <a href="mailto:guardianagene6@gmail.com">EMAIL</a>
-        <p class="footer-deployed">// SITE_DEPLOYED: <span style="color:var(--primary)">seven33.site</span></p>
+        <p class="footer-deployed">// SITE_DEPLOYED: <span class="highlight">seven33.site</span></p>
         <p class="footer-copy">&copy; 2026 Gene Guardiana | Engineered via Termux</p>
     </div>
 </footer>
@@ -465,20 +478,99 @@ function toggleMenu() {
     document.getElementById("sideMenu").classList.toggle("open");
 }
 
-// 4. THEME TOGGLE
-function toggleTheme() {
-    document.body.classList.toggle("light");
-    const light = document.body.classList.contains("light");
-    localStorage.setItem("seven33-theme", light ? "light" : "dark");
-    document.getElementById("themeBtn").textContent = light ? "☀️" : "🌙";
-}
-function loadTheme() {
-    if (localStorage.getItem("seven33-theme") === "light") {
-        document.body.classList.add("light");
-        document.getElementById("themeBtn").textContent = "☀️";
+// 4. BOOT INTRO SEQUENCE
+(function bootIntro() {
+    const overlay = document.getElementById('bootIntro');
+    const textEl = document.getElementById('bootText');
+    const skipEl = document.getElementById('bootSkip');
+    const canvas = document.getElementById('matrixCanvas');
+
+    // Only show once per browser session -- replaying a multi-second intro
+    // on every single page load gets old fast and annoys repeat visitors.
+    if (sessionStorage.getItem('seven33-intro-seen')) {
+        overlay.remove();
+        return;
     }
-}
-loadTheme();
+
+    let finished = false;
+    function endIntro() {
+        if (finished) return;
+        finished = true;
+        sessionStorage.setItem('seven33-intro-seen', '1');
+        overlay.classList.add('hide');
+        clearInterval(rainTimer);
+        setTimeout(() => overlay.remove(), 700);
+    }
+
+    // Matrix rain background
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const chars = 'アイウエオカキクケコ01SEVEN33_ARCHITECT#$%'.split('');
+    const fontSize = 15;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function drawRain() {
+        ctx.fillStyle = 'rgba(0,0,0,0.08)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#7ee787';
+        ctx.font = fontSize + 'px monospace';
+        drops.forEach((y, i) => {
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            ctx.fillText(char, i * fontSize, y * fontSize);
+            if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
+        });
+    }
+    const rainTimer = setInterval(drawRain, 45);
+
+    // Boot text sequence
+    const lines = [
+        '> INITIALIZING SEVEN33_CORE...',
+        '> MOUNTING TERMUX_ENV...',
+        '> DECRYPTING ARCHITECT_PROFILE...',
+        '> ACCESS GRANTED'
+    ];
+
+    async function typeLine(line, isLast) {
+        return new Promise(resolve => {
+            let i = 0;
+            const span = document.createElement('div');
+            textEl.appendChild(span);
+            const typer = setInterval(() => {
+                span.textContent = line.slice(0, i + 1);
+                i++;
+                if (i >= line.length) {
+                    clearInterval(typer);
+                    if (isLast) span.classList.add('glitch');
+                    resolve();
+                }
+            }, 34);
+        });
+    }
+
+    async function runSequence() {
+        await new Promise(r => setTimeout(r, 350));
+        for (let i = 0; i < lines.length; i++) {
+            if (finished) return;
+            await typeLine(lines[i], i === lines.length - 1);
+            await new Promise(r => setTimeout(r, 420));
+        }
+        await new Promise(r => setTimeout(r, 1000));
+        endIntro();
+    }
+    runSequence();
+
+    // Let impatient visitors skip immediately
+    window.addEventListener('keydown', endIntro, { once: true });
+    overlay.addEventListener('click', endIntro);
+})();
 </script>
 
 </body>
