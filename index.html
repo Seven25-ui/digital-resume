@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0d1117">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230d1117'/%3E%3Ctext x='32' y='44' font-family='monospace' font-size='32' font-weight='bold' text-anchor='middle' fill='%23E95420'%3ES7%3C/text%3E%3C/svg%3E">
 
 <title>Gene Guardiana | Full-Stack Developer for Hire — Flask, AI Chatbots, Automation</title>
 
@@ -942,6 +943,7 @@ button:focus-visible{
 .menu-btn:hover{ border-color:var(--blue); }
 
 .bar{
+    display:block;
     width:25px;
     height:3px;
     background-color:var(--blue);
@@ -950,6 +952,7 @@ button:focus-visible{
 }
 
 .side-nav{
+    visibility:hidden;
     height:100%;
     width:0;
     position:fixed;
@@ -959,12 +962,16 @@ button:focus-visible{
     background-color:var(--bg);
     overflow-x:hidden;
     overflow-y:auto;
-    transition:.5s;
+    transition:width .5s, visibility 0s linear .5s;
     padding-top:60px;
     border-left:1px solid var(--border);
 }
 
-.side-nav.open{ width:250px; }
+.side-nav.open{
+    width:250px;
+    visibility:visible;
+    transition:width .5s, visibility 0s;
+}
 
 .nav-links a{
     padding:15px 32px;
@@ -1457,7 +1464,7 @@ button:focus-visible{
                         TODO: once your bot is public, replace this disabled span with:
                         <a href="https://t.me/YOUR_BOT_USERNAME" target="_blank" rel="noopener noreferrer" class="repo-link">TRY THE BOT</a>
                     -->
-                    <span class="repo-link disabled">LIVE DEMO: COMING SOON</span>
+                    <span class="repo-link disabled" aria-disabled="true">LIVE DEMO: COMING SOON</span>
 
                     <a
                         href="https://github.com/Seven25-ui/ai-customer-support-bot"
@@ -1815,7 +1822,7 @@ button:focus-visible{
 
                 </div>
 
-                <span class="repo-link disabled">[ STATUS: UNDER_DEVELOPMENT ]</span>
+                <span class="repo-link disabled" aria-disabled="true">[ STATUS: UNDER_DEVELOPMENT ]</span>
 
             </div>
 
