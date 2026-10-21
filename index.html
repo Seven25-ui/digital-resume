@@ -559,7 +559,7 @@ document.addEventListener("keydown", function(e){ if(e.key === "Escape") toggleM
 <script>
 (function () {
   var MODE = "ask"; // "ask" para sa index.html, "terminal" para sa terminal.html
-  var API = "https://seven33-ai.guardianagene6.workers.dev/"; // ilisi sa imong tinuod nga Worker URL
+  var API = "https://seven33-ai.guardianagene6.workers.dev/";
 
   var T =
     MODE === "terminal"
@@ -619,7 +619,7 @@ document.addEventListener("keydown", function(e){ if(e.key === "Escape") toggleM
       }
     });
   }
-    
+
   function add(cls, text) {
     var d = document.createElement("div");
     d.className = cls;
@@ -654,7 +654,7 @@ document.addEventListener("keydown", function(e){ if(e.key === "Escape") toggleM
       });
       var data = await res.json();
       var reply = data.reply || "Sorry, something went wrong.";
-      wait.textContent = reply;
+      setText(wait, reply);
       if (res.ok) history.push({ role: "assistant", text: reply });
       else history.pop();
     } catch (e) {
