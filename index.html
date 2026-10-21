@@ -554,5 +554,102 @@ document.addEventListener("keydown", function(e){ if(e.key === "Escape") toggleM
     });
 })();
 </script>
+
+    <!-- ===== SEVEN33 AI SNIPPET: ibutang sa ubos sa katapusang </script> ug sa ibabaw sa </body> ===== -->
+<script>
+(function () {
+  var MODE = "ask"; // "ask" para sa index.html, "terminal" para sa terminal.html
+  var API = "https://IMONG-WORKER.workers.dev"; // ilisi sa imong tinuod nga Worker URL
+
+  var T =
+    MODE === "terminal"
+      ? { title: "seven33-ai ~$", hi: "Ask me about Linux, Termux, coding, or the tutorials.", ph: "type a question...", c: "#3fb950", f: "ui-monospace,Consolas,monospace" }
+      : { title: "Ask Gene's AI", hi: "Hi! I can answer questions about Gene's services, pricing, and projects.", ph: "Ask about services, pricing...", c: "#58a6ff", f: "system-ui,sans-serif" };
+
+  var css =
+    ".s33b{position:fixed;right:16px;bottom:16px;z-index:9999;border:0;border-radius:24px;padding:12px 18px;background:" + T.c + ";color:#0d1117;font:600 14px " + T.f + ";cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.4)}" +
+    ".s33p{position:fixed;right:16px;bottom:16px;z-index:9999;width:min(360px,calc(100vw - 32px));height:min(460px,70vh);display:none;flex-direction:column;background:#0d1117;color:#e6edf3;border:1px solid #30363d;border-radius:12px;font:14px " + T.f + ";box-shadow:0 8px 28px rgba(0,0,0,.5)}" +
+    ".s33p.open{display:flex}" +
+    ".s33h{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid #30363d;color:" + T.c + ";font-weight:600}" +
+    ".s33h button{background:none;border:0;color:#8b949e;font-size:18px;cursor:pointer}" +
+    ".s33m{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}" +
+    ".s33m div{max-width:88%;padding:8px 11px;border-radius:10px;white-space:pre-wrap;word-wrap:break-word;line-height:1.4}" +
+    ".s33m .u{align-self:flex-end;background:" + T.c + ";color:#0d1117}" +
+    ".s33m .a{align-self:flex-start;background:#161b22;border:1px solid #30363d}" +
+    ".s33f{display:flex;gap:6px;padding:10px;border-top:1px solid #30363d}" +
+    ".s33f input{flex:1;min-width:0;padding:9px;border-radius:8px;border:1px solid #30363d;background:#010409;color:#e6edf3;font:inherit}" +
+    ".s33f button{border:0;border-radius:8px;padding:0 14px;background:" + T.c + ";color:#0d1117;font-weight:600;cursor:pointer}";
+  var st = document.createElement("style");
+  st.textContent = css;
+  document.head.appendChild(st);
+
+  var btn = document.createElement("button");
+  btn.className = "s33b";
+  btn.textContent = T.title;
+  var panel = document.createElement("div");
+  panel.className = "s33p";
+  panel.innerHTML =
+    '<div class="s33h"><span></span><button aria-label="Close">\u00d7</button></div>' +
+    '<div class="s33m"></div>' +
+    '<div class="s33f"><input maxlength="800"><button>Send</button></div>';
+  panel.querySelector(".s33h span").textContent = T.title;
+  var box = panel.querySelector(".s33m");
+  var input = panel.querySelector("input");
+  var send = panel.querySelector(".s33f button");
+  input.placeholder = T.ph;
+  document.body.appendChild(btn);
+  document.body.appendChild(panel);
+
+  var history = [];
+  function add(cls, text) {
+    var d = document.createElement("div");
+    d.className = cls;
+    d.textContent = text;
+    box.appendChild(d);
+    box.scrollTop = box.scrollHeight;
+    return d;
+  }
+  add("a", T.hi);
+
+  function toggle(open) {
+    panel.classList.toggle("open", open);
+    btn.style.display = open ? "none" : "block";
+    if (open) input.focus();
+  }
+  btn.onclick = function () { toggle(true); };
+  panel.querySelector(".s33h button").onclick = function () { toggle(false); };
+
+  async function submit() {
+    var text = input.value.trim();
+    if (!text || send.disabled) return;
+    input.value = "";
+    add("u", text);
+    history.push({ role: "user", text: text });
+    send.disabled = true;
+    var wait = add("a", "...");
+    try {
+      var res = await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: MODE, messages: history.slice(-8) }),
+      });
+      var data = await res.json();
+      var reply = data.reply || "Sorry, something went wrong.";
+      wait.textContent = reply;
+      if (res.ok) history.push({ role: "assistant", text: reply });
+      else history.pop();
+    } catch (e) {
+      wait.textContent = "Connection problem. Please try again.";
+      history.pop();
+    }
+    send.disabled = false;
+    box.scrollTop = box.scrollHeight;
+  }
+  send.onclick = submit;
+  input.onkeydown = function (e) { if (e.key === "Enter") submit(); };
+})();
+</script>
+<!-- ===== END SEVEN33 AI SNIPPET ===== -->
+    
 </body>
 </html>
