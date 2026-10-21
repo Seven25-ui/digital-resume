@@ -601,10 +601,29 @@ document.addEventListener("keydown", function(e){ if(e.key === "Escape") toggleM
   document.body.appendChild(panel);
 
   var history = [];
+  function setText(d, text) {
+    d.textContent = "";
+    text.split(/(https?:\/\/\S+)/g).forEach(function (part) {
+      if (/^https?:\/\//.test(part)) {
+        var m = part.match(/^(.*?)([.,;:!?)]*)$/);
+        var a = document.createElement("a");
+        a.href = m[1];
+        a.textContent = m[1];
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.style.cssText = "color:" + T.c + ";text-decoration:underline;word-break:break-all";
+        d.appendChild(a);
+        if (m[2]) d.appendChild(document.createTextNode(m[2]));
+      } else {
+        d.appendChild(document.createTextNode(part));
+      }
+    });
+  }
+    
   function add(cls, text) {
     var d = document.createElement("div");
     d.className = cls;
-    d.textContent = text;
+    if (cls === "a") setText(d, text); else d.textContent = text;
     box.appendChild(d);
     box.scrollTop = box.scrollHeight;
     return d;
